@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -4 410 108" aria-label="Operius">
+  <title>Operius</title>
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&amp;display=swap');</style>
+  </defs>
+
+  <!-- Gear: 10 denti, cx=50 cy=50, outer_r=42, inner_r=33, hub_r=22, dot_r=12 -->
+  <path fill="#111" fill-rule="evenodd" shape-rendering="geometricPrecision" d="
+    M82.39,43.70 L91.69,44.88 L91.69,55.12 L82.39,56.30
+    L79.91,63.95 L86.73,70.36 L80.72,78.64 L72.51,74.14
+    L66.00,78.86 L67.75,88.06 L58.01,91.23 L54.02,82.75
+    L45.98,82.75 L41.99,91.23 L32.25,88.06 L34.00,78.86
+    L27.49,74.14 L19.28,78.64 L13.27,70.36 L20.09,63.95
+    L17.61,56.30 L8.31,55.12 L8.31,44.88 L17.61,43.70
+    L20.09,36.05 L13.27,29.64 L19.28,21.36 L27.49,25.86
+    L34.00,21.14 L32.25,11.94 L41.99,8.77 L45.98,17.25
+    L54.02,17.25 L58.01,8.77 L67.75,11.94 L66.00,21.14
+    L72.51,25.86 L80.72,21.36 L86.73,29.64 L79.91,36.05 Z
+    M72,50 A22,22 0 1,0 28,50 A22,22 0 1,0 72,50 Z"/>
+
+  <!-- Freccia alto-dx (306°) -->
+  <line x1="63.52" y1="31.39" x2="77.04" y2="12.79" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="84.09,3.08 72.19,9.26 81.89,16.32" fill="#111"/>
+
+  <!-- Freccia basso-sx (126°) -->
+  <line x1="36.48" y1="68.61" x2="22.96" y2="87.21" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="15.91,96.92 27.81,90.74 18.11,83.68" fill="#111"/>
+
+  <!-- Centro -->
+  <circle cx="50" cy="50" r="12" fill="#111"/>
+
+  <!--
+    Spaziatura uniforme:
+    font-kerning:none → disabilita kern pairs (pe, er, ri, iu, us hanno kern diversi)
+    letter-spacing:4 → gap uniforme ~9px tra ogni coppia
+    x=98 → gap gear(92)→p ≈ 9px = uguale ai gap tra lettere
+    y=71 → x-height center = gear center (y=50)
+  -->
+  <text x="98" y="71"
+        font-family="'Inter', system-ui, -apple-system, sans-serif"
+        font-weight="800"
+        font-size="78"
+        fill="#111"
+        letter-spacing="4"
+        style="font-kerning:none"
+        text-rendering="optimizeLegibility">perius</text>
+</svg>

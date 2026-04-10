@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operius — Gestisci il tuo team, ovunque</title>
+<meta name="description" content="Operius è il gestionale per piccole imprese con squadre in campo. Bollatrice geolocalizzata, turni, ordini di lavoro.">
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://operius.it/">
+<meta property="og:title" content="Operius — Gestisci il tuo team, ovunque">
+<meta property="og:description" content="Bollatrice geolocalizzata, gestione turni e ordini di lavoro per piccole imprese con squadre in campo.">
+<meta property="og:image" content="https://operius.it/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:   #111111;
+  --white:   #ffffff;
+  --off:     #f8f8f8;
+  --border:  #e8e8e8;
+  --muted:   #777777;
+  --font-h:  'Inter', system-ui, -apple-system, sans-serif;
+  --font-b:  'Inter', system-ui, -apple-system, sans-serif;
+
+  /* vertical accent colours */
+  --c-idro:   #1a6cf0;
+  --c-elett:  #f5a623;
+  --c-off:    #e05a2b;
+  --c-gym:    #7c3aed;
+  --c-giar:   #1fa35c;
+  --c-edil:   #c0392b;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-b); background: var(--white); color: var(--black); overflow-x: hidden; line-height: 1; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo img { height: 32px; display: block; filter: brightness(0); }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .15s; }
+.nav-links a:hover { color: var(--black); }
+.nav-cta {
+  background: var(--black) !important; color: var(--white) !important;
+  padding: 8px 20px !important; border-radius: 6px; font-size: 14px !important;
+  transition: opacity .15s !important;
+}
+.nav-cta:hover { opacity: .8 !important; }
+
+/* ─── HERO ─── */
+.hero {
+  padding: 140px 48px 80px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  max-width: 1200px; margin: 0 auto;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: var(--font-h); font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 700; line-height: 1.1; letter-spacing: -.02em;
+  margin-bottom: 24px;
+}
+.hero h1 span { border-bottom: 3px solid var(--black); }
+.hero-sub {
+  font-size: 17px; color: var(--muted); line-height: 1.7;
+  max-width: 420px; margin-bottom: 36px; font-weight: 400;
+}
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+.btn-dark {
+  background: var(--black); color: var(--white);
+  padding: 13px 26px; border-radius: 6px; font-size: 15px; font-weight: 500;
+  text-decoration: none; transition: opacity .15s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-dark:hover { opacity: .8; }
+.btn-ghost {
+  background: transparent; color: var(--black);
+  padding: 13px 26px; border-radius: 6px; font-size: 15px; font-weight: 500;
+  text-decoration: none; border: 1px solid var(--border); transition: border-color .15s;
+}
+.btn-ghost:hover { border-color: #999; }
+.hero-proof { font-size: 12px; color: #aaa; }
+.hero-proof strong { color: var(--muted); }
+
+/* ─── DASHBOARD MOCKUP ─── */
+.dash {
+  background: var(--off); border: 1px solid var(--border); border-radius: 16px;
+  overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,.06);
+}
+.dash-bar {
+  background: var(--white); border-bottom: 1px solid var(--border);
+  padding: 12px 16px; display: flex; align-items: center; gap: 8px;
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-r { background: #ff5f57; } .dot-y { background: #febc2e; } .dot-g { background: #28c840; }
+.dash-url {
+  margin-left: 8px; background: var(--off); border: 1px solid var(--border);
+  border-radius: 4px; padding: 3px 12px; font-size: 11px; color: var(--muted);
+}
+.dash-body { padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.dash-kpis { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.kpi {
+  background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+  padding: 14px; border-top: 3px solid var(--border);
+}
+.kpi.blue  { border-top-color: var(--c-idro); }
+.kpi.orange{ border-top-color: var(--c-off); }
+.kpi.purple{ border-top-color: var(--c-gym); }
+.kpi-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+.kpi-val   { font-family: var(--font-h); font-size: 26px; font-weight: 800; line-height: 1; margin-bottom: 2px; }
+.kpi-sub   { font-size: 10px; color: var(--muted); }
+.dash-table { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.dt-head {
+  display: grid; grid-template-columns: 1fr auto auto;
+  padding: 8px 14px; background: var(--off); border-bottom: 1px solid var(--border);
+  font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em;
+}
+.dt-row {
+  display: grid; grid-template-columns: 1fr auto auto;
+  align-items: center; padding: 9px 14px; border-bottom: 1px solid #f0f0f0;
+  gap: 12px;
+}
+.dt-row:last-child { border-bottom: none; }
+.avatar {
+  width: 26px; height: 26px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: white; margin-right: 8px; flex-shrink: 0;
+}
+.dt-name-wrap { display: flex; align-items: center; }
+.dt-name { font-size: 13px; font-weight: 500; }
+.dt-role { font-size: 11px; color: var(--muted); }
+.dt-time { font-size: 12px; font-weight: 600; font-family: monospace; }
+.pill {
+  font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 100px;
+  white-space: nowrap;
+}
+.pill-green  { background: #e8f8f0; color: #1a7a45; }
+.pill-yellow { background: #fff8e6; color: #a06000; }
+.pill-gray   { background: #f0f0f0; color: #666; }
+
+/* ─── DIVIDER ─── */
+.divider { border: none; border-top: 1px solid var(--border); }
+
+/* ─── SECTION BASE ─── */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.section { padding: 96px 0; }
+.eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 16px;
+}
+.section-h {
+  font-family: var(--font-h); font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 700; letter-spacing: -.02em; line-height: 1.1; margin-bottom: 16px;
+}
+.section-p { font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 480px; }
+
+/* ─── FEATURES ─── */
+.features-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--border); border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden; margin-top: 56px;
+}
+.feat {
+  background: var(--white); padding: 36px 32px;
+  transition: background .2s;
+}
+.feat:hover { background: var(--off); }
+.feat-icon {
+  width: 40px; height: 40px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 20px;
+}
+.feat-h { font-family: var(--font-h); font-size: 17px; font-weight: 700; margin-bottom: 8px; letter-spacing: -.02em; }
+.feat-p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+/* ─── VERTICALS ─── */
+.verticals-section { background: var(--black); color: var(--white); }
+.verticals-section .eyebrow { color: #666; }
+.verticals-section .section-h { color: var(--white); }
+.verticals-section .section-p { color: #666; }
+.vert-grid {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px;
+  background: #222; border: 1px solid #222; border-radius: 12px;
+  overflow: hidden; margin-top: 56px;
+}
+.vert-card {
+  background: #111; padding: 28px 20px;
+  border-top: 3px solid transparent;
+  transition: background .2s;
+  cursor: default;
+}
+.vert-card:hover { background: #1a1a1a; }
+.vert-card.idro  { border-top-color: var(--c-idro); }
+.vert-card.elett { border-top-color: var(--c-elett); }
+.vert-card.off   { border-top-color: var(--c-off); }
+.vert-card.gym   { border-top-color: var(--c-gym); }
+.vert-card.giar  { border-top-color: var(--c-giar); }
+.vert-card.edil  { border-top-color: var(--c-edil); }
+.vert-emoji { font-size: 28px; display: block; margin-bottom: 12px; }
+.vert-name { font-family: var(--font-h); font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--white); }
+.vert-desc { font-size: 12px; color: #555; line-height: 1.5; }
+
+/* ─── PRICING ─── */
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 56px;
+}
+.p-card {
+  border: 1px solid var(--border); border-radius: 12px; padding: 36px;
+  position: relative; transition: box-shadow .2s;
+}
+.p-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.07); }
+.p-card.featured { background: var(--black); color: var(--white); border-color: var(--black); }
+.p-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--black); color: white; font-size: 10px; font-weight: 700;
+  padding: 4px 12px; border-radius: 100px; text-transform: uppercase; letter-spacing: .08em;
+  white-space: nowrap;
+}
+.p-card.featured .p-badge { background: white; color: var(--black); }
+.p-plan {
+  font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 16px;
+}
+.p-card.featured .p-plan { color: #777; }
+.p-price {
+  font-family: var(--font-h); font-size: 52px; font-weight: 800;
+  letter-spacing: -.04em; line-height: 1; margin-bottom: 4px;
+}
+.p-period { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+.p-card.featured .p-period { color: #666; }
+.p-line { height: 1px; background: var(--border); margin-bottom: 24px; }
+.p-card.featured .p-line { background: #2a2a2a; }
+.p-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.p-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+.p-card.featured .p-list li { color: #999; }
+.p-list li::before { content: '—'; color: var(--black); font-weight: 600; flex-shrink: 0; margin-top: 1px; }
+.p-card.featured .p-list li::before { color: var(--white); }
+.p-btn {
+  display: block; text-align: center; padding: 13px; border-radius: 6px;
+  font-size: 14px; font-weight: 600; text-decoration: none; transition: all .15s;
+}
+.p-btn-outline { border: 1px solid var(--border); color: var(--black); }
+.p-btn-outline:hover { border-color: var(--black); background: var(--off); }
+.p-btn-white { background: white; color: var(--black); }
+.p-btn-white:hover { background: #eee; }
+.pricing-note { text-align: center; margin-top: 24px; font-size: 13px; color: var(--muted); }
+
+/* ─── FORM ─── */
+.form-section {
+  background: var(--off); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.form-inner {
+  max-width: 600px; margin: 0 auto; padding: 96px 48px; text-align: center;
+}
+.form-inner .section-h { font-size: clamp(24px,3vw,38px); }
+.form-inner .section-p { margin: 0 auto 40px; }
+form { display: flex; flex-direction: column; gap: 12px; text-align: left; }
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.f-input {
+  width: 100%; padding: 13px 16px; font-family: var(--font-b); font-size: 14px;
+  border: 1px solid var(--border); border-radius: 6px; background: var(--white);
+  color: var(--black); outline: none; transition: border-color .15s;
+  appearance: none;
+}
+.f-input:focus { border-color: var(--black); }
+.f-input::placeholder { color: #bbb; }
+.f-submit {
+  background: var(--black); color: var(--white); padding: 15px; border-radius: 6px;
+  font-family: var(--font-b); font-size: 15px; font-weight: 600; border: none;
+  cursor: pointer; transition: opacity .15s;
+}
+.f-submit:hover { opacity: .8; }
+.f-note { text-align: center; font-size: 12px; color: #bbb; margin-top: 4px; }
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 48px; display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  border-top: 1px solid var(--border);
+}
+footer img { height: 24px; filter: brightness(0); opacity: .4; }
+.foot-links { display: flex; gap: 24px; }
+.foot-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .15s; }
+.foot-links a:hover { color: var(--black); }
+.foot-copy { font-size: 12px; color: #ccc; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; gap: 40px; }
+  .wrap { padding: 0 24px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .vert-grid { grid-template-columns: repeat(2,1fr); }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .f-row { grid-template-columns: 1fr; }
+  footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes up { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+.hero-text > * { animation: up .5s ease both; }
+.hero-text > *:nth-child(2) { animation-delay: .08s; }
+.hero-text > *:nth-child(3) { animation-delay: .16s; }
+.hero-text > *:nth-child(4) { animation-delay: .24s; }
+.hero-text > *:nth-child(5) { animation-delay: .32s; }
+.hero-visual { animation: up .6s .2s ease both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="logo-operius.svg" alt="Operius">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#funzionalita">Funzionalità</a></li>
+    <li><a href="#settori">Settori</a></li>
+    <li><a href="#prezzi">Prezzi</a></li>
+    <li><a href="#trial" class="nav-cta">Prova gratis</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-text">
+      <span class="hero-eyebrow">Gestionale per squadre in campo</span>
+      <h1>Il tuo team.<br><span>Sempre sotto controllo.</span></h1>
+      <p class="hero-sub">Bollatrice geolocalizzata, gestione turni e ordini di lavoro direttamente dallo smartphone. Nessun hardware, nessuna complicazione.</p>
+      <div class="hero-btns">
+        <a href="#trial" class="btn-dark">Prova gratis 30 giorni →</a>
+        <a href="#funzionalita" class="btn-ghost">Scopri come funziona</a>
+      </div>
+      <p class="hero-proof">Nessuna carta di credito &nbsp;·&nbsp; Setup in 24h &nbsp;·&nbsp; <strong>Supporto incluso</strong></p>
+    </div>
+    <div class="hero-visual">
+      <div class="dash">
+        <div class="dash-bar">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <div class="dash-url">app.operius.it/dashboard</div>
+        </div>
+        <div class="dash-body">
+          <div class="dash-kpis">
+            <div class="kpi blue">
+              <div class="kpi-label">In sede ora</div>
+              <div class="kpi-val">7</div>
+              <div class="kpi-sub">di 9 dipendenti</div>
+            </div>
+            <div class="kpi orange">
+              <div class="kpi-label">Interventi</div>
+              <div class="kpi-val">4</div>
+              <div class="kpi-sub">in corso oggi</div>
+            </div>
+            <div class="kpi purple">
+              <div class="kpi-label">Ore totali</div>
+              <div class="kpi-val">38h</div>
+              <div class="kpi-sub">questo mese</div>
+            </div>
+          </div>
+          <div class="dash-table">
+            <div class="dt-head"><span>Dipendente</span><span>Ore</span><span>Stato</span></div>
+            <div class="dt-row">
+              <div class="dt-name-wrap">
+                <div class="avatar" style="background:var(--c-idro)">MR</div>
+                <div><div class="dt-name">Mario Rossi</div><div class="dt-role">Idraulico · Squadra A</div></div>
+              </div>
+              <div class="dt-time">6h 42m</div>
+              <span class="pill pill-green">In sede</span>
+            </div>
+            <div class="dt-row">
+              <div class="dt-name-wrap">
+                <div class="avatar" style="background:var(--c-elett)">LB</div>
+                <div><div class="dt-name">Luca Bianchi</div><div class="dt-role">Elettricista · Squadra B</div></div>
+              </div>
+              <div class="dt-time">5h 18m</div>
+              <span class="pill pill-yellow">Cantiere</span>
+            </div>
+            <div class="dt-row">
+              <div class="dt-name-wrap">
+                <div class="avatar" style="background:var(--c-gym)">SF</div>
+                <div><div class="dt-name">Sara Ferrari</div><div class="dt-role">Amministrazione</div></div>
+              </div>
+              <div class="dt-time">4h 05m</div>
+              <span class="pill pill-gray">Pausa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- FEATURES -->
+<div class="wrap">
+  <section class="section" id="funzionalita">
+    <div class="eyebrow">Funzionalità</div>
+    <h2 class="section-h">Tutto quello che serve.<br>Niente di superfluo.</h2>
+    <p class="section-p">Ogni funzione risolve un problema reale, sviluppata lavorando ogni giorno con piccole imprese.</p>
+
+    <div class="features-grid">
+      <div class="feat">
+        <div class="feat-icon" style="background:#e8f0ff">📍</div>
+        <div class="feat-h">Bollatrice geolocalizzata</div>
+        <p class="feat-p">Il dipendente timbra dal suo smartphone. Le coordinate GPS vengono registrate lato server — nessuna frode possibile, nessun badge da acquistare.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon" style="background:#fff3e0">🗓️</div>
+        <div class="feat-h">Turni e squadre</div>
+        <p class="feat-p">Pianifica chi lavora quando, organizza le squadre per tipo di intervento. I dipendenti vedono il loro turno direttamente dallo smartphone.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon" style="background:#f3e8ff">📋</div>
+        <div class="feat-h">Ordini di lavoro mobili</div>
+        <p class="feat-p">Crea un intervento, assegnalo a una squadra. Indirizzo cliente, tipo di lavoro e note arrivano direttamente sul telefono dell'operaio.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon" style="background:#e8f8f0">📊</div>
+        <div class="feat-h">Cartellino mensile</div>
+        <p class="feat-p">Export Excel pronto per il commercialista ogni mese. Ore totali, pause, straordinari — calcolati automaticamente con le tue regole.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon" style="background:#fff0f0">⚠️</div>
+        <div class="feat-h">Alert automatici</div>
+        <p class="feat-p">Notifica al dipendente se dimentica di timbrare. L'amministratore vede subito le presenze incomplete e le gestisce in pochi secondi.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon" style="background:#f0f0f0">🔒</div>
+        <div class="feat-h">Dati tuoi, sul tuo server</div>
+        <p class="feat-p">Ogni azienda ha la sua istanza dedicata. I tuoi dati non sono mai condivisi. Infrastruttura certificata Aruba, datacenter in Italia.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- VERTICALS -->
+<section class="verticals-section" id="settori">
+  <div class="wrap">
+    <div class="section" style="padding-bottom:80px">
+      <div class="eyebrow">Settori</div>
+      <h2 class="section-h">Fatto per chi lavora sul campo.</h2>
+      <p class="section-p">Non un gestionale generico — uno strumento pensato per chi ha squadre in giro tutto il giorno.</p>
+      <div class="vert-grid">
+        <div class="vert-card idro">
+          <span class="vert-emoji">🔧</span>
+          <div class="vert-name">Idraulici</div>
+          <div class="vert-desc">Squadre su cantieri diversi, interventi su appuntamento, ore per commessa.</div>
+        </div>
+        <div class="vert-card elett">
+          <span class="vert-emoji">⚡</span>
+          <div class="vert-name">Elettricisti</div>
+          <div class="vert-desc">OdL per impianti, squadre certificate, documentazione cantiere digitale.</div>
+        </div>
+        <div class="vert-card off">
+          <span class="vert-emoji">🔩</span>
+          <div class="vert-name">Officine</div>
+          <div class="vert-desc">OdL veicoli, preventivi, calendario meccanici, storico interventi.</div>
+        </div>
+        <div class="vert-card giar">
+          <span class="vert-emoji">🌿</span>
+          <div class="vert-name">Giardinieri</div>
+          <div class="vert-desc">Tracciamento ore per cliente, pianificazione stagionale, squadre esterne.</div>
+        </div>
+        <div class="vert-card edil">
+          <span class="vert-emoji">🏗️</span>
+          <div class="vert-name">Edilizia</div>
+          <div class="vert-desc">Presenze per cantiere, gestione subappaltatori, ore per commessa.</div>
+        </div>
+        <div class="vert-card" style="border-top-color:#2a2a2a; display:flex; flex-direction:column; justify-content:center;">
+          <span class="vert-emoji" style="opacity:.4">＋</span>
+          <div class="vert-name" style="color:#444">Altro settore?</div>
+          <div class="vert-desc" style="color:#333">Operius si adatta a qualsiasi team in campo. <a href="#trial" style="color:#555; text-decoration:underline;">Parliamone →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<div class="wrap">
+  <section class="section" id="prezzi">
+    <div class="eyebrow">Prezzi</div>
+    <h2 class="section-h">Semplice e trasparente.</h2>
+    <p class="section-p">Nessun costo nascosto. Cambia piano quando vuoi. Disdici in qualsiasi momento.</p>
+
+    <div class="pricing-grid">
+      <div class="p-card">
+        <div class="p-plan">Starter</div>
+        <div class="p-price">€19</div>
+        <div class="p-period">/mese &nbsp;·&nbsp; fino a 5 dipendenti</div>
+        <div class="p-line"></div>
+        <ul class="p-list">
+          <li>Bollatrice geolocalizzata</li>
+          <li>Cartellino mensile + export Excel</li>
+          <li>Anagrafica dipendenti</li>
+          <li>Dashboard presenze in tempo reale</li>
+          <li>Supporto via WhatsApp</li>
+        </ul>
+        <a href="#trial" class="p-btn p-btn-outline">Inizia la prova gratuita</a>
+      </div>
+
+      <div class="p-card featured">
+        <div class="p-badge">Più scelto</div>
+        <div class="p-plan">Team</div>
+        <div class="p-price">€39</div>
+        <div class="p-period">/mese &nbsp;·&nbsp; fino a 15 dipendenti</div>
+        <div class="p-line"></div>
+        <ul class="p-list">
+          <li>Tutto di Starter</li>
+          <li>Gestione turni settimanali</li>
+          <li>Organizzazione squadre</li>
+          <li>Alert timbrature mancanti</li>
+          <li>Regole di arrotondamento</li>
+          <li>Audit log completo</li>
+        </ul>
+        <a href="#trial" class="p-btn p-btn-white">Inizia la prova gratuita</a>
+      </div>
+
+      <div class="p-card">
+        <div class="p-plan">Pro</div>
+        <div class="p-price">€59</div>
+        <div class="p-period">/mese &nbsp;·&nbsp; dipendenti illimitati</div>
+        <div class="p-line"></div>
+        <ul class="p-list">
+          <li>Tutto di Team</li>
+          <li>Ordini di lavoro mobili</li>
+          <li>Assegnazione interventi a squadre</li>
+          <li>Vista cantiere per operaio</li>
+          <li>Geofence configurabile</li>
+          <li>Priorità nel supporto</li>
+        </ul>
+        <a href="#trial" class="p-btn p-btn-outline">Inizia la prova gratuita</a>
+      </div>
+    </div>
+    <p class="pricing-note">Setup iniziale una tantum: €150–200 · Include configurazione, creazione utenti e formazione</p>
+  </section>
+</div>
+
+<!-- FORM -->
+<section class="form-section" id="trial">
+  <div class="form-inner">
+    <div class="eyebrow" style="text-align:center">Inizia adesso</div>
+    <h2 class="section-h">30 giorni gratuiti.<br>Nessuna carta richiesta.</h2>
+    <p class="section-p" style="text-align:center">Compila il modulo e ti contatteremo entro 24 ore per configurare il tuo account.</p>
+
+    <form action="https://formspree.io/f/FORM_ID" method="POST" id="trialForm">
+      <div class="f-row">
+        <input type="text" name="nome" class="f-input" placeholder="Nome e cognome" required>
+        <input type="text" name="azienda" class="f-input" placeholder="Nome azienda" required>
+      </div>
+      <input type="email" name="email" class="f-input" placeholder="Email aziendale" required>
+      <select name="settore" class="f-input" required>
+        <option value="" disabled selected>Settore aziendale</option>
+        <option>Idraulico / Termoidraulico</option>
+        <option>Elettricista / Impiantista</option>
+        <option>Officina meccanica</option>
+        <option>Edilizia / Costruzioni</option>
+        <option>Giardinaggio</option>
+        <option>Altro</option>
+      </select>
+      <div class="f-row">
+        <input type="number" name="dipendenti" class="f-input" placeholder="Numero dipendenti" min="1" required>
+        <input type="tel" name="telefono" class="f-input" placeholder="Telefono / WhatsApp" required>
+      </div>
+      <input type="hidden" name="_subject" value="Nuova richiesta trial Operius">
+      <input type="hidden" name="_next" value="https://operius.it/?grazie=1">
+      <button type="submit" class="f-submit">Richiedi la prova gratuita →</button>
+      <p class="f-note">Ti risponderemo entro 24 ore · Nessun impegno</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo-operius.svg" alt="Operius">
+  <div class="foot-links">
+    <a href="#funzionalita">Funzionalità</a>
+    <a href="#settori">Settori</a>
+    <a href="#prezzi">Prezzi</a>
+    <a href="mailto:info@operius.it">info@operius.it</a>
+    <a href="#">Privacy</a>
+    <a href="#">Cookie</a>
+  </div>
+  <span class="foot-copy">© 2026 Operius · Tutti i diritti riservati</span>
+</footer>
+
+<script>
+// Messaggio di conferma dopo redirect Formspree
+if (new URLSearchParams(location.search).has('grazie')) {
+  const f = document.getElementById('trialForm');
+  if (f) {
+    f.innerHTML = '<div style="text-align:center;padding:32px 0"><p style="font-size:24px;margin-bottom:12px">✓</p><p style="font-size:18px;font-weight:600;margin-bottom:8px">Richiesta ricevuta!</p><p style="font-size:14px;color:#777">Ti contatteremo entro 24 ore.</p></div>';
+  }
+  history.replaceState({}, '', '/');
+}
+
+// Scroll fade-in
+const io = new IntersectionObserver(entries => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.style.animation = 'up .5s ease both';
+      io.unobserve(el.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.feat, .vert-card, .p-card').forEach(el => {
+  el.style.opacity = '0';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
