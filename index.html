@@ -318,13 +318,6 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
   .pricing-grid { grid-template-columns: 1fr; }
   .f-row { grid-template-columns: 1fr; }
   footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
-  .problems-inner { padding: 60px 24px; }
-  .problems-grid { grid-template-columns: 1fr; }
-  .stats-inner { grid-template-columns: 1fr; padding: 24px; gap: 24px; }
-  .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding: 16px 0; }
-  .stat-item:last-child { border-bottom: none; }
-  .cta-strip { padding: 48px 24px; }
-  .trust-row { gap: 16px; }
 }
 
 /* ─── HERO BADGE ─── */
@@ -367,25 +360,6 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
 }
 .prob-icon { flex-shrink: 0; font-size: 16px; margin-top: 1px; }
 
-/* ─── STATS BAR ─── */
-.stats-bar {
-  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-}
-.stats-inner {
-  max-width: 1200px; margin: 0 auto; padding: 48px;
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
-}
-.stat-item {
-  text-align: center; padding: 0 24px;
-  border-right: 1px solid var(--border);
-}
-.stat-item:last-child { border-right: none; }
-.stat-num {
-  font-family: var(--font-h); font-size: 52px; font-weight: 800;
-  letter-spacing: -.04em; line-height: 1; margin-bottom: 8px;
-}
-.stat-label { font-size: 14px; color: var(--muted); line-height: 1.4; }
-
 /* ─── CTA STRIP ─── */
 .cta-strip {
   background: var(--black); color: var(--white);
@@ -424,6 +398,14 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
 }
 .pricing-compare strong { color: var(--black); }
 
+/* ─── RESPONSIVE (nuovi elementi) ─── */
+@media (max-width: 900px) {
+  .problems-inner { padding: 60px 24px; }
+  .problems-grid { grid-template-columns: 1fr; }
+  .cta-strip { padding: 48px 24px; }
+  .trust-row { gap: 16px; }
+}
+
 /* ─── ANIMATIONS ─── */
 @keyframes up { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 .hero-text > * { animation: up .5s ease both; }
@@ -453,7 +435,6 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
 <div class="wrap">
   <div class="hero">
     <div class="hero-text">
-      <div class="hero-badge">⭐ Già usato da 40+ aziende italiane</div>
       <span class="hero-eyebrow">Gestionale per squadre in campo</span>
       <h1>Il tuo team.<br><span>Sempre sotto controllo.</span></h1>
       <p class="hero-sub">Bollatrice geolocalizzata, gestione turni e ordini di lavoro direttamente dallo smartphone. Nessun hardware, nessuna complicazione.</p>
@@ -557,24 +538,6 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
     </div>
   </div>
 </section>
-
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat-item">
-      <div class="stat-num">40+</div>
-      <div class="stat-label">aziende italiane<br>già attive su Operius</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">600+</div>
-      <div class="stat-label">operatori tracciati<br>ogni giorno</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">30'</div>
-      <div class="stat-label">risparmiati al giorno<br>da ogni caposquadra</div>
-    </div>
-  </div>
-</div>
 
 <!-- FEATURES -->
 <div class="wrap">
