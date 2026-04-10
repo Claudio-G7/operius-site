@@ -3,16 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Operius — Gestionale per squadre in campo | Bollatrice geolocalizzata</title>
-<meta name="description" content="Gestisci presenze, turni e ordini di lavoro per idraulici, elettricisti, edili e officine. Bollatrice GPS dal cellulare, nessun hardware. Prova gratis 30 giorni.">
-<meta name="keywords" content="gestionale squadre campo, bollatrice geolocalizzata, gestione presenze operai, turni dipendenti smartphone, ordini lavoro mobili, software idraulici elettricisti officine edilizia">
-<link rel="canonical" href="https://operius.it/">
+<title>Operius — Gestisci il tuo team, ovunque</title>
+<meta name="description" content="Operius è il gestionale per piccole imprese con squadre in campo. Bollatrice geolocalizzata, turni, ordini di lavoro.">
 
 <!-- Open Graph / Social -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://operius.it/">
-<meta property="og:title" content="Operius — Gestionale per squadre in campo | Bollatrice geolocalizzata">
-<meta property="og:description" content="Gestisci presenze, turni e ordini di lavoro per idraulici, elettricisti, edili e officine. Bollatrice GPS dal cellulare. Prova gratis 30 giorni, nessuna carta richiesta.">
+<meta property="og:title" content="Operius — Gestisci il tuo team, ovunque">
+<meta property="og:description" content="Bollatrice geolocalizzata, gestione turni e ordini di lavoro per piccole imprese con squadre in campo.">
 <meta property="og:image" content="https://operius.it/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -318,111 +316,7 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
   .pricing-grid { grid-template-columns: 1fr; }
   .f-row { grid-template-columns: 1fr; }
   footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
-  .problems-inner { padding: 60px 24px; }
-  .problems-grid { grid-template-columns: 1fr; }
-  .stats-inner { grid-template-columns: 1fr; padding: 24px; gap: 24px; }
-  .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding: 16px 0; }
-  .stat-item:last-child { border-bottom: none; }
-  .cta-strip { padding: 48px 24px; }
-  .trust-row { gap: 16px; }
 }
-
-/* ─── HERO BADGE ─── */
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: var(--off); border: 1px solid var(--border); border-radius: 100px;
-  padding: 5px 12px; font-size: 12px; font-weight: 500; color: var(--black);
-  margin-bottom: 16px;
-}
-
-/* ─── PROBLEMS SECTION ─── */
-.problems-section {
-  background: var(--off);
-  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-}
-.problems-inner {
-  max-width: 1200px; margin: 0 auto; padding: 80px 48px;
-}
-.problems-header { text-align: center; margin-bottom: 56px; }
-.problems-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-  background: var(--border); border: 1px solid var(--border); border-radius: 12px;
-  overflow: hidden;
-}
-.prob-col {
-  background: var(--white); padding: 40px 36px;
-}
-.prob-col.bad  { background: #fffaf8; }
-.prob-col.good { background: var(--white); }
-.prob-col-label {
-  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-  margin-bottom: 24px; display: flex; align-items: center; gap: 8px;
-}
-.prob-col.bad  .prob-col-label { color: #c0392b; }
-.prob-col.good .prob-col-label { color: #1a7a45; }
-.prob-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-.prob-list li {
-  display: flex; align-items: flex-start; gap: 10px;
-  font-size: 15px; line-height: 1.5; color: var(--black);
-}
-.prob-icon { flex-shrink: 0; font-size: 16px; margin-top: 1px; }
-
-/* ─── STATS BAR ─── */
-.stats-bar {
-  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-}
-.stats-inner {
-  max-width: 1200px; margin: 0 auto; padding: 48px;
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
-}
-.stat-item {
-  text-align: center; padding: 0 24px;
-  border-right: 1px solid var(--border);
-}
-.stat-item:last-child { border-right: none; }
-.stat-num {
-  font-family: var(--font-h); font-size: 52px; font-weight: 800;
-  letter-spacing: -.04em; line-height: 1; margin-bottom: 8px;
-}
-.stat-label { font-size: 14px; color: var(--muted); line-height: 1.4; }
-
-/* ─── CTA STRIP ─── */
-.cta-strip {
-  background: var(--black); color: var(--white);
-  padding: 64px 48px; text-align: center;
-}
-.cta-strip-h {
-  font-family: var(--font-h); font-size: clamp(24px, 3vw, 38px);
-  font-weight: 700; letter-spacing: -.02em; line-height: 1.15;
-  margin-bottom: 12px;
-}
-.cta-strip-sub {
-  font-size: 16px; color: #888; margin-bottom: 32px;
-}
-.btn-white {
-  background: var(--white); color: var(--black);
-  padding: 13px 28px; border-radius: 6px; font-size: 15px; font-weight: 600;
-  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-  transition: opacity .15s;
-}
-.btn-white:hover { opacity: .88; }
-.cta-strip-note { margin-top: 16px; font-size: 12px; color: #555; }
-
-/* ─── TRUST ROW ─── */
-.trust-row {
-  display: flex; justify-content: center; align-items: center;
-  gap: 24px; flex-wrap: wrap;
-  margin-top: 20px; font-size: 13px; color: #aaa;
-}
-.trust-row span { display: flex; align-items: center; gap: 5px; }
-
-/* ─── PRICING COMPARE NOTE ─── */
-.pricing-compare {
-  background: var(--off); border: 1px solid var(--border); border-radius: 8px;
-  padding: 16px 20px; margin-bottom: 40px;
-  font-size: 14px; color: var(--muted); line-height: 1.6; text-align: center;
-}
-.pricing-compare strong { color: var(--black); }
 
 /* ─── ANIMATIONS ─── */
 @keyframes up { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
@@ -453,7 +347,6 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
 <div class="wrap">
   <div class="hero">
     <div class="hero-text">
-      <div class="hero-badge">⭐ Già usato da 40+ aziende italiane</div>
       <span class="hero-eyebrow">Gestionale per squadre in campo</span>
       <h1>Il tuo team.<br><span>Sempre sotto controllo.</span></h1>
       <p class="hero-sub">Bollatrice geolocalizzata, gestione turni e ordini di lavoro direttamente dallo smartphone. Nessun hardware, nessuna complicazione.</p>
@@ -524,58 +417,6 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
 
 <hr class="divider">
 
-<!-- PROBLEMS → SOLUTIONS -->
-<section class="problems-section">
-  <div class="problems-inner">
-    <div class="problems-header">
-      <div class="eyebrow" style="text-align:center">Il problema che conosci bene</div>
-      <h2 class="section-h" style="text-align:center">Gestire una squadra non dovrebbe<br>essere così complicato.</h2>
-    </div>
-    <div class="problems-grid">
-      <div class="prob-col bad">
-        <div class="prob-col-label">✗ &nbsp;Come fai adesso</div>
-        <ul class="prob-list">
-          <li><span class="prob-icon">💬</span> Turni e presenze gestiti su WhatsApp, carta o email</li>
-          <li><span class="prob-icon">📂</span> File Excel diversi per ore, turni, interventi e commesse</li>
-          <li><span class="prob-icon">💸</span> Gestionali da 200–500€/mese progettati per grandi aziende, non per te</li>
-          <li><span class="prob-icon">❓</span> Non sai chi è in cantiere in questo momento</li>
-          <li><span class="prob-icon">⏳</span> Ore perse ogni mese a raccogliere cartellini per il commercialista</li>
-          <li><span class="prob-icon">📞</span> Interventi assegnati per telefono o messaggio vocale</li>
-        </ul>
-      </div>
-      <div class="prob-col good">
-        <div class="prob-col-label">✓ &nbsp;Con Operius</div>
-        <ul class="prob-list">
-          <li><span class="prob-icon">📱</span> Tutto in un'unica app, gestita dallo smartphone</li>
-          <li><span class="prob-icon">🗂️</span> Un solo strumento per presenze, turni e ordini di lavoro</li>
-          <li><span class="prob-icon">💶</span> Da 19€/mese, pensato apposta per piccole imprese</li>
-          <li><span class="prob-icon">📍</span> Dashboard in tempo reale, aggiornata al minuto</li>
-          <li><span class="prob-icon">📊</span> Export Excel automatico ogni mese, pronto per il commercialista</li>
-          <li><span class="prob-icon">📋</span> Ordini di lavoro inviati direttamente allo smartphone dell'operaio</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat-item">
-      <div class="stat-num">40+</div>
-      <div class="stat-label">aziende italiane<br>già attive su Operius</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">600+</div>
-      <div class="stat-label">operatori tracciati<br>ogni giorno</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">30'</div>
-      <div class="stat-label">risparmiati al giorno<br>da ogni caposquadra</div>
-    </div>
-  </div>
-</div>
-
 <!-- FEATURES -->
 <div class="wrap">
   <section class="section" id="funzionalita">
@@ -617,14 +458,6 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
     </div>
   </section>
 </div>
-
-<!-- CTA STRIP -->
-<section class="cta-strip">
-  <h2 class="cta-strip-h">Basta messaggi su WhatsApp.<br>Basta file Excel ovunque.</h2>
-  <p class="cta-strip-sub">Operius sostituisce tutto. Da 19€/mese, pronto in pochi giorni.</p>
-  <a href="#trial" class="btn-white">Prova gratis 30 giorni →</a>
-  <p class="cta-strip-note">Nessuna carta di credito · Nessun hardware · Configurazione inclusa</p>
-</section>
 
 <!-- VERTICALS -->
 <section class="verticals-section" id="settori">
@@ -675,11 +508,6 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
     <div class="eyebrow">Prezzi</div>
     <h2 class="section-h">Semplice e trasparente.</h2>
     <p class="section-p">Nessun costo nascosto. Cambia piano quando vuoi. Disdici in qualsiasi momento.</p>
-
-    <div class="pricing-compare">
-      I gestionali tradizionali costano <strong>200–500€/mese</strong> e richiedono settimane di formazione.<br>
-      Operius funziona in pochi giorni, <strong>da 19€/mese</strong> — e la configurazione è inclusa.
-    </div>
 
     <div class="pricing-grid">
       <div class="p-card">
@@ -767,12 +595,6 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
       <button type="submit" class="f-submit">Richiedi la prova gratuita →</button>
       <p class="f-note">Ti ricontatteremo al più presto · Nessun impegno</p>
     </form>
-    <div class="trust-row">
-      <span>🔒 Dati protetti</span>
-      <span>🇮🇹 Server in Italia</span>
-      <span>✓ Nessun contratto</span>
-      <span>✓ Configurazione inclusa</span>
-    </div>
   </div>
 </section>
 
@@ -810,7 +632,7 @@ const io = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.feat, .vert-card, .p-card, .prob-col, .stat-item').forEach(el => {
+document.querySelectorAll('.feat, .vert-card, .p-card').forEach(el => {
   el.style.opacity = '0';
   io.observe(el);
 });
