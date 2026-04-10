@@ -569,7 +569,7 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
     <h2 class="section-h">30 giorni gratuiti.<br>Nessuna carta richiesta.</h2>
     <p class="section-p" style="text-align:center">Compila il modulo e ti contatteremo entro 24 ore per configurare il tuo account.</p>
 
-    <form action="https://formspree.io/f/FORM_ID" method="POST" id="trialForm">
+    <form action="https://formsubmit.co/info@operius.it" method="POST" id="trialForm">
       <div class="f-row">
         <input type="text" name="nome" class="f-input" placeholder="Nome e cognome" required>
         <input type="text" name="azienda" class="f-input" placeholder="Nome azienda" required>
@@ -590,6 +590,8 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
       </div>
       <input type="hidden" name="_subject" value="Nuova richiesta trial Operius">
       <input type="hidden" name="_next" value="https://operius.it/?grazie=1">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none">
       <button type="submit" class="f-submit">Richiedi la prova gratuita →</button>
       <p class="f-note">Ti risponderemo entro 24 ore · Nessun impegno</p>
     </form>
