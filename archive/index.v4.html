@@ -402,47 +402,12 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
 }
 .pricing-compare strong { color: var(--black); }
 
-/* ─── PRICING ENTERPRISE ─── */
-.p-enterprise {
-  border: 1px solid var(--border); border-radius: 12px;
-  padding: 36px; margin-top: 24px;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 24px; flex-wrap: wrap;
-}
-.p-enterprise-text .p-plan { margin-bottom: 8px; }
-.p-enterprise-text p { font-size: 14px; color: var(--muted); line-height: 1.6; max-width: 560px; }
-.p-btn-dark {
-  background: var(--black); color: var(--white); white-space: nowrap;
-  display: inline-block; text-align: center; padding: 13px 24px;
-  border-radius: 6px; font-size: 14px; font-weight: 600;
-  text-decoration: none; transition: opacity .15s; flex-shrink: 0;
-}
-.p-btn-dark:hover { opacity: .8; }
-
-/* ─── ADDONS ─── */
-.addons-section { background: var(--off); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.addons-inner { max-width: 1200px; margin: 0 auto; padding: 64px 48px; }
-.addons-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px;
-}
-.addon-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: 10px;
-  padding: 24px; transition: box-shadow .2s;
-}
-.addon-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.06); }
-.addon-icon { font-size: 22px; margin-bottom: 12px; }
-.addon-h { font-size: 15px; font-weight: 700; margin-bottom: 6px; letter-spacing: -.01em; }
-.addon-p { font-size: 13px; color: var(--muted); line-height: 1.6; }
-
 /* ─── RESPONSIVE (nuovi elementi) ─── */
 @media (max-width: 900px) {
   .problems-inner { padding: 60px 24px; }
   .problems-grid { grid-template-columns: 1fr; }
   .cta-strip { padding: 48px 24px; }
   .trust-row { gap: 16px; }
-  .p-enterprise { flex-direction: column; align-items: flex-start; }
-  .addons-inner { padding: 48px 24px; }
-  .addons-grid { grid-template-columns: 1fr; }
 }
 
 /* ─── ANIMATIONS ─── */
@@ -588,18 +553,18 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
     <div class="features-grid">
       <div class="feat">
         <div class="feat-icon" style="background:#e8f0ff">📍</div>
-        <div class="feat-h">Timbratrice geolocalizzata</div>
-        <p class="feat-p">L'operaio timbra dal telefono. Le coordinate GPS vengono registrate lato server. Nessuna frode possibile, nessun badge da acquistare. Funziona su più sedi contemporaneamente.</p>
+        <div class="feat-h">Bollatrice geolocalizzata</div>
+        <p class="feat-p">Il dipendente timbra dal suo smartphone. Le coordinate GPS vengono registrate lato server. Nessuna frode possibile, nessun badge da acquistare.</p>
       </div>
       <div class="feat">
         <div class="feat-icon" style="background:#fff3e0">🗓️</div>
         <div class="feat-h">Turni e squadre</div>
-        <p class="feat-p">Pianifica chi lavora quando, organizza le squadre per tipo di intervento. Ogni dipendente vede il proprio turno direttamente dal telefono o dal tablet.</p>
+        <p class="feat-p">Pianifica chi lavora quando, organizza le squadre per tipo di intervento. I dipendenti vedono il loro turno direttamente dallo smartphone.</p>
       </div>
       <div class="feat">
         <div class="feat-icon" style="background:#f3e8ff">📋</div>
         <div class="feat-h">Ordini di lavoro mobili</div>
-        <p class="feat-p">Crea un intervento dal PC e assegnalo a una squadra. Indirizzo cliente, tipo di lavoro e note arrivano in tempo reale sul telefono dell'operaio. Apre e chiude geolocalizzato.</p>
+        <p class="feat-p">Crea un intervento, assegnalo a una squadra. Indirizzo cliente, tipo di lavoro e note arrivano direttamente sul telefono dell'operaio.</p>
       </div>
       <div class="feat">
         <div class="feat-icon" style="background:#e8f8f0">📊</div>
@@ -607,24 +572,9 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
         <p class="feat-p">Export Excel pronto per il commercialista ogni mese. Ore totali, pause e straordinari calcolati automaticamente secondo le tue regole. Il commercialista ti ringrazierà.</p>
       </div>
       <div class="feat">
-        <div class="feat-icon" style="background:#fff0f0">💸</div>
-        <div class="feat-h">Note spese</div>
-        <p class="feat-p">L'operaio registra le spese direttamente dall'app durante il turno. Foto della ricevuta, categoria e importo. Tu approvi, esporti e hai tutto sotto controllo.</p>
-      </div>
-      <div class="feat">
-        <div class="feat-icon" style="background:#f0fff4">🌴</div>
-        <div class="feat-h">Ferie e permessi self-service</div>
-        <p class="feat-p">Il dipendente richiede ferie o permessi dall'app. Tu approvi o rifiuti con un click. I turni si aggiornano automaticamente, senza messaggi su WhatsApp.</p>
-      </div>
-      <div class="feat">
-        <div class="feat-icon" style="background:#f5f0ff">👥</div>
-        <div class="feat-h">Anagrafiche complete</div>
-        <p class="feat-p">Dipendenti, clienti e fornitori in un unico posto. Storico interventi per cliente, documenti, contatti. La base su cui gira tutto il resto.</p>
-      </div>
-      <div class="feat">
-        <div class="feat-icon" style="background:#fff8e0">📄</div>
-        <div class="feat-h">Preventivi e fatturazione</div>
-        <p class="feat-p">Crea preventivi dal PC, inviali al cliente, convertili in ordine di lavoro. Tieni traccia di cosa è stato fatturato e cosa è ancora aperto.</p>
+        <div class="feat-icon" style="background:#fff0f0">👁️</div>
+        <div class="feat-h">Presenze in tempo reale</div>
+        <p class="feat-p">Dashboard con la situazione aggiornata: chi è in sede, chi è in pausa, chi non ha ancora timbrato. Tutto visibile a colpo d'occhio.</p>
       </div>
       <div class="feat">
         <div class="feat-icon" style="background:#f0f0f0">🔒</div>
@@ -695,113 +645,61 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
 
     <div class="pricing-compare">
       I gestionali tradizionali costano <strong>200–500€/mese</strong> e richiedono settimane di formazione.<br>
-      Operius funziona in pochi giorni, <strong>da 24€/mese</strong>.
+      Operius funziona in pochi giorni, <strong>da 19€/mese</strong>.
     </div>
 
     <div class="pricing-grid">
       <div class="p-card">
-        <div class="p-plan">Presenze</div>
-        <div class="p-price">€24</div>
-        <div class="p-period">/mese &nbsp;·&nbsp; fino a 10 dipendenti</div>
+        <div class="p-plan">Starter</div>
+        <div class="p-price">€19</div>
+        <div class="p-period">/mese &nbsp;·&nbsp; fino a 5 dipendenti</div>
         <div class="p-line"></div>
         <ul class="p-list">
-          <li>Timbratrice geolocalizzata multi-sede</li>
-          <li>Turni e squadre</li>
+          <li>Bollatrice geolocalizzata</li>
           <li>Cartellino mensile + export Excel</li>
-          <li>Note spese dipendenti</li>
-          <li>Richiesta ferie e permessi self-service</li>
-          <li>Anagrafiche dipendenti e clienti</li>
-          <li>App installabile (PWA)</li>
+          <li>Anagrafica dipendenti</li>
+          <li>Dashboard presenze in tempo reale</li>
+          <li>1 sede / 1 geofence</li>
         </ul>
         <a href="#trial" class="p-btn p-btn-outline">Inizia la prova gratuita</a>
       </div>
 
       <div class="p-card featured">
-        <div class="p-badge">Più scelto</div>
-        <div class="p-plan">Gestionale</div>
-        <div class="p-price">€54</div>
-        <div class="p-period">/mese &nbsp;·&nbsp; fino a 25 dipendenti</div>
+        <div class="p-badge">Consigliato</div>
+        <div class="p-plan">Team</div>
+        <div class="p-price">€39</div>
+        <div class="p-period">/mese &nbsp;·&nbsp; fino a 15 dipendenti</div>
         <div class="p-line"></div>
         <ul class="p-list">
-          <li>Tutto di Presenze</li>
-          <li>Anagrafiche fornitori</li>
-          <li>Ordini di lavoro mobili geolocalizzati</li>
-          <li>Preventivi clienti</li>
-          <li>Dashboard presenze avanzata</li>
-          <li>Gestione commesse</li>
+          <li>Tutto di Starter</li>
+          <li>Gestione turni settimanali</li>
+          <li>Organizzazione squadre</li>
+          <li>Sedi e geofence multipli</li>
+          <li>Regole di arrotondamento</li>
+          <li>Export presenze per commercialista</li>
         </ul>
         <a href="#trial" class="p-btn p-btn-white">Inizia la prova gratuita</a>
       </div>
 
       <div class="p-card">
-        <div class="p-plan">Business</div>
-        <div class="p-price">€89</div>
-        <div class="p-period">/mese &nbsp;·&nbsp; fino a 50 dipendenti</div>
+        <div class="p-plan">Pro</div>
+        <div class="p-price">€59</div>
+        <div class="p-period">/mese &nbsp;·&nbsp; dipendenti illimitati</div>
         <div class="p-line"></div>
         <ul class="p-list">
-          <li>Tutto di Gestionale</li>
-          <li>Fatturazione</li>
-          <li>Magazzino ricambi</li>
-          <li>Consumi / Telepass / carte carburante</li>
-          <li>Multi-sede e distaccamenti avanzati</li>
+          <li>Tutto di Team</li>
+          <li>Ordini di lavoro mobili</li>
+          <li>Assegnazione interventi a squadre</li>
+          <li>Vista cantiere per operaio</li>
+          <li>Geofence configurabile</li>
           <li>Supporto dedicato</li>
         </ul>
         <a href="#trial" class="p-btn p-btn-outline">Inizia la prova gratuita</a>
       </div>
     </div>
-
-    <div class="p-enterprise">
-      <div class="p-enterprise-text">
-        <div class="p-plan">Su misura</div>
-        <p>Più di 50 dipendenti, moduli personalizzati o integrazioni specifiche? Costruiamo insieme la soluzione giusta per la tua azienda. Prezzi su misura, nessun limite imposto.</p>
-      </div>
-      <a href="#trial" class="p-btn-dark">Parliamone →</a>
-    </div>
-
-    <p class="pricing-note">Setup iniziale con costo variabile in base alla complessità · Tutti i piani includono assistenza all'avvio</p>
+    <p class="pricing-note">Setup iniziale con costo variabile in base alla complessità · Configurazione, creazione utenti e formazione inclusi</p>
   </section>
 </div>
-
-<!-- ADDONS -->
-<section class="addons-section">
-  <div class="addons-inner">
-    <div class="eyebrow">Servizi aggiuntivi</div>
-    <h2 class="section-h">Ogni azienda è diversa.</h2>
-    <p class="section-p">Oltre ai piani standard, puoi aggiungere moduli e servizi su misura. Paghi solo quello che ti serve davvero.</p>
-    <div class="addons-grid">
-      <div class="addon-card">
-        <div class="addon-icon">🔗</div>
-        <div class="addon-h">Integrazioni su misura</div>
-        <p class="addon-p">Collegamento con gestionali esistenti, software di contabilità, piattaforme di terze parti o API personalizzate.</p>
-      </div>
-      <div class="addon-card">
-        <div class="addon-icon">🎓</div>
-        <div class="addon-h">Formazione dedicata</div>
-        <p class="addon-p">Sessioni di formazione per il tuo team, onboarding guidato e materiali personalizzati per la tua azienda.</p>
-      </div>
-      <div class="addon-card">
-        <div class="addon-icon">📦</div>
-        <div class="addon-h">Migrazione dati</div>
-        <p class="addon-p">Importiamo lo storico da Excel, da altri gestionali o da fogli di carta. Parti da subito senza perdere nulla.</p>
-      </div>
-      <div class="addon-card">
-        <div class="addon-icon">⚡</div>
-        <div class="addon-h">SLA prioritario</div>
-        <p class="addon-p">Tempi di risposta garantiti, canale di supporto dedicato e interventi urgenti con priorità assoluta.</p>
-      </div>
-      <div class="addon-card">
-        <div class="addon-icon">🎨</div>
-        <div class="addon-h">Branding personalizzato</div>
-        <p class="addon-p">L'app con il tuo logo e i tuoi colori. I tuoi dipendenti usano uno strumento che sembra fatto apposta per te.</p>
-      </div>
-      <div class="addon-card">
-        <div class="addon-icon">🧩</div>
-        <div class="addon-h">Moduli aggiuntivi</div>
-        <p class="addon-p">Magazzino ricambi avanzato, gestione DDT, riconciliazione consumi, API targa e molto altro. Su richiesta.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- FORM -->
 <section class="form-section" id="trial">
