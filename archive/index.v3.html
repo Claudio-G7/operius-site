@@ -87,7 +87,7 @@ nav {
   font-weight: 700; line-height: 1.1; letter-spacing: -.02em;
   margin-bottom: 24px;
 }
-.hero h1 span { border-bottom: 3px solid var(--black); padding-bottom: 8px; }
+.hero h1 span { border-bottom: 3px solid var(--black); }
 .hero-sub {
   font-size: 17px; color: var(--muted); line-height: 1.7;
   max-width: 420px; margin-bottom: 36px; font-weight: 400;
@@ -441,7 +441,7 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
     <div class="hero-text">
       <span class="hero-eyebrow">Gestionale per squadre in campo</span>
       <h1>Il tuo team.<br><span>Sempre sotto controllo.</span></h1>
-      <p class="hero-sub">Timbrature GPS, turni e ordini di lavoro direttamente dallo smartphone. Zero hardware, zero complicazioni.</p>
+      <p class="hero-sub">Bollatrice geolocalizzata, gestione turni e ordini di lavoro direttamente dallo smartphone. Nessun hardware, nessuna complicazione.</p>
       <div class="hero-btns">
         <a href="#trial" class="btn-dark">Prova gratis 30 giorni →</a>
         <a href="#funzionalita" class="btn-ghost">Scopri come funziona</a>
@@ -554,7 +554,7 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
       <div class="feat">
         <div class="feat-icon" style="background:#e8f0ff">📍</div>
         <div class="feat-h">Bollatrice geolocalizzata</div>
-        <p class="feat-p">Il dipendente timbra dal suo smartphone. Le coordinate GPS vengono registrate lato server. Nessuna frode possibile, nessun badge da acquistare.</p>
+        <p class="feat-p">Il dipendente timbra dal suo smartphone. Le coordinate GPS vengono registrate lato server — nessuna frode possibile, nessun badge da acquistare.</p>
       </div>
       <div class="feat">
         <div class="feat-icon" style="background:#fff3e0">🗓️</div>
@@ -569,7 +569,7 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
       <div class="feat">
         <div class="feat-icon" style="background:#e8f8f0">📊</div>
         <div class="feat-h">Cartellino mensile</div>
-        <p class="feat-p">Export Excel pronto per il commercialista ogni mese. Ore totali, pause e straordinari calcolati automaticamente secondo le tue regole.</p>
+        <p class="feat-p">Export Excel pronto per il commercialista ogni mese. Ore totali, pause, straordinari — calcolati automaticamente con le tue regole.</p>
       </div>
       <div class="feat">
         <div class="feat-icon" style="background:#fff0f0">👁️</div>
@@ -590,7 +590,7 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
   <h2 class="cta-strip-h">Basta messaggi su WhatsApp.<br>Basta file Excel ovunque.</h2>
   <p class="cta-strip-sub">Operius sostituisce tutto. Da 19€/mese, pronto in pochi giorni.</p>
   <a href="#trial" class="btn-white">Prova gratis 30 giorni →</a>
-  <p class="cta-strip-note">Nessuna carta di credito · Nessun hardware · Nessun contratto</p>
+  <p class="cta-strip-note">Nessuna carta di credito · Nessun hardware · Configurazione inclusa</p>
 </section>
 
 <!-- VERTICALS -->
@@ -599,7 +599,7 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
     <div class="section" style="padding-bottom:80px">
       <div class="eyebrow">Settori</div>
       <h2 class="section-h">Fatto per chi lavora sul campo.</h2>
-      <p class="section-p">Pensato per chi ha squadre in giro tutto il giorno. Non per le grandi aziende con l'ufficio IT.</p>
+      <p class="section-p">Non un gestionale generico — uno strumento pensato per chi ha squadre in giro tutto il giorno.</p>
       <div class="vert-grid">
         <div class="vert-card idro">
           <span class="vert-emoji">🔧</span>
@@ -706,14 +706,14 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
   <div class="form-inner">
     <div class="eyebrow" style="text-align:center">Inizia adesso</div>
     <h2 class="section-h">30 giorni gratuiti.<br>Nessuna carta richiesta.</h2>
-    <p class="section-p" style="text-align:center">Compila il modulo. Ti ricontatteremo entro 24 ore.</p>
+    <p class="section-p" style="text-align:center">Compila il modulo e ti ricontatteremo per configurare il tuo account.</p>
 
     <form action="https://formsubmit.co/info@operius.it" method="POST" id="trialForm">
       <div class="f-row">
         <input type="text" name="nome" class="f-input" placeholder="Nome e cognome" required>
         <input type="text" name="azienda" class="f-input" placeholder="Nome azienda" required>
       </div>
-      <input type="email" name="email" id="email" class="f-input" placeholder="Email aziendale" required>
+      <input type="email" name="email" class="f-input" placeholder="Email aziendale" required>
       <select name="settore" class="f-input" required>
         <option value="" disabled selected>Settore aziendale</option>
         <option>Idraulico / Termoidraulico</option>
@@ -725,18 +725,18 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
       </select>
       <div class="f-row">
         <input type="number" name="dipendenti" class="f-input" placeholder="Numero dipendenti" min="1" required>
-        <input type="tel" name="telefono" id="telefono" class="f-input" placeholder="Telefono / WhatsApp (opzionale)">
+        <input type="tel" name="telefono" class="f-input" placeholder="Telefono / WhatsApp" required>
       </div>
       <input type="hidden" name="_subject" value="Nuova richiesta trial Operius">
       <input type="text" name="_honey" style="display:none">
       <button type="submit" class="f-submit">Richiedi la prova gratuita →</button>
-      <p class="f-note" id="formNote">Ti ricontatteremo entro 24 ore · Nessun impegno</p>
+      <p class="f-note">Ti ricontatteremo al più presto · Nessun impegno</p>
     </form>
     <div class="trust-row">
       <span>🔒 Dati protetti</span>
       <span>🇮🇹 Server in Italia</span>
       <span>✓ Nessun contratto</span>
-      <span>✓ Nessun impegno</span>
+      <span>✓ Configurazione inclusa</span>
     </div>
   </div>
 </section>
@@ -764,21 +764,6 @@ if (new URLSearchParams(location.search).has('grazie')) {
   }
   history.replaceState({}, '', '/');
 }
-
-// Validazione form: email obbligatoria, telefono opzionale ma almeno uno dei due
-document.getElementById('trialForm').addEventListener('submit', function(e) {
-  const email = document.getElementById('email').value.trim();
-  const tel = document.getElementById('telefono').value.trim();
-  const note = document.getElementById('formNote');
-  if (!email && !tel) {
-    e.preventDefault();
-    note.textContent = 'Inserisci almeno un contatto: email o telefono.';
-    note.style.color = '#c0392b';
-    return;
-  }
-  note.textContent = 'Ti ricontatteremo entro 24 ore · Nessun impegno';
-  note.style.color = '';
-});
 
 // Scroll fade-in
 const io = new IntersectionObserver(entries => {
