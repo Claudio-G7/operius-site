@@ -228,7 +228,7 @@ nav {
 
 /* ─── PRICING ─── */
 .pricing-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
   margin-top: 56px;
 }
 .p-card {
@@ -319,7 +319,8 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
   .wrap { padding: 0 24px; }
   .features-grid { grid-template-columns: 1fr; }
   .vert-grid { grid-template-columns: repeat(2,1fr); }
-  .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr 1fr; }
+  .pricing-grid .p-card { padding: 24px; }
   .f-row { grid-template-columns: 1fr; }
   footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
 }
@@ -443,6 +444,10 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
   .p-enterprise { flex-direction: column; align-items: flex-start; }
   .addons-inner { padding: 48px 24px; }
   .addons-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .pricing-grid { grid-template-columns: 1fr; }
 }
 
 /* ─── ANIMATIONS ─── */
@@ -748,14 +753,21 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
         </ul>
         <a href="#trial" class="p-btn p-btn-outline">Inizia la prova gratuita</a>
       </div>
-    </div>
-
-    <div class="p-enterprise">
-      <div class="p-enterprise-text">
-        <div class="p-plan">Su misura</div>
-        <p>Più di 50 dipendenti, moduli personalizzati o integrazioni specifiche? Costruiamo insieme la soluzione giusta per la tua azienda. Prezzi su misura, nessun limite imposto.</p>
+      <div class="p-card">
+        <div class="p-plan">Enterprise</div>
+        <div class="p-price" style="font-size:32px; letter-spacing:-.02em; padding-top:8px">Su misura</div>
+        <div class="p-period">dipendenti illimitati</div>
+        <div class="p-line"></div>
+        <ul class="p-list">
+          <li>Tutto di Business</li>
+          <li>Moduli personalizzati</li>
+          <li>Integrazioni su misura</li>
+          <li>Branding personalizzato</li>
+          <li>SLA garantito</li>
+          <li>Formazione dedicata</li>
+        </ul>
+        <a href="#trial" class="p-btn p-btn-outline">Parliamone →</a>
       </div>
-      <a href="#trial" class="p-btn-dark">Parliamone →</a>
     </div>
 
     <p class="pricing-note">Setup iniziale con costo variabile in base alla complessità · Tutti i piani includono assistenza all'avvio</p>
