@@ -513,6 +513,30 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
   text-align: center;
 }
 .plan-result span { font-weight: 400; opacity: .75; margin-left: 6px; }
+.plan-result-why {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 400;
+  opacity: .85;
+  line-height: 1.6;
+}
+.plan-result-why li { margin-left: 16px; list-style: disc; }
+.plan-progress {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  font-weight: 500;
+}
+.plan-q-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.p-list li:has(✦) { color: var(--black); font-weight: 500; }
 .p-card.pf-recommended:not(.featured) {
   border-color: var(--black) !important;
   box-shadow: 0 8px 32px rgba(0,0,0,.1) !important;
@@ -769,40 +793,6 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
       Operius funziona in pochi giorni, <strong>da 24€/mese</strong>.
     </div>
 
-    <!-- Plan Finder -->
-    <div class="plan-finder">
-      <div class="plan-finder-title">Non sai quale piano fa per te?</div>
-      <div class="plan-finder-sub">Rispondi a 3 domande — ti mostriamo il piano giusto.</div>
-
-      <div class="plan-question">
-        <div class="plan-q-text">Quanti dipendenti o collaboratori gestisci?</div>
-        <div class="plan-options">
-          <label class="plan-opt"><input type="radio" name="pf-q1" value="10" onchange="pfUpdate()"><span>Fino a 10</span></label>
-          <label class="plan-opt"><input type="radio" name="pf-q1" value="25" onchange="pfUpdate()"><span>Da 11 a 25</span></label>
-          <label class="plan-opt"><input type="radio" name="pf-q1" value="50" onchange="pfUpdate()"><span>Da 26 a 50</span></label>
-          <label class="plan-opt"><input type="radio" name="pf-q1" value="50plus" onchange="pfUpdate()"><span>Più di 50</span></label>
-        </div>
-      </div>
-
-      <div class="plan-question">
-        <div class="plan-q-text">Hai bisogno di inviare ordini di lavoro ai tuoi operai?</div>
-        <div class="plan-options">
-          <label class="plan-opt"><input type="radio" name="pf-q2" value="no" onchange="pfUpdate()"><span>No, mi bastano presenze e turni</span></label>
-          <label class="plan-opt"><input type="radio" name="pf-q2" value="si" onchange="pfUpdate()"><span>Sì, gestisco anche interventi in campo</span></label>
-        </div>
-      </div>
-
-      <div class="plan-question">
-        <div class="plan-q-text">Hai bisogno di fatturare o gestire il magazzino ricambi?</div>
-        <div class="plan-options">
-          <label class="plan-opt"><input type="radio" name="pf-q3" value="no" onchange="pfUpdate()"><span>No</span></label>
-          <label class="plan-opt"><input type="radio" name="pf-q3" value="si" onchange="pfUpdate()"><span>Sì, anche fatturazione o magazzino</span></label>
-        </div>
-      </div>
-
-      <div id="pf-result" class="plan-result" style="display:none"></div>
-    </div>
-
     <div class="pricing-grid">
       <div class="p-card">
         <div class="p-plan">Presenze</div>
@@ -840,7 +830,7 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
       </div>
 
       <div class="p-card">
-        <div class="p-plan">Business</div>
+        <div class="p-plan">Max</div>
         <div class="p-price">€89</div>
         <div class="p-period">/mese &nbsp;·&nbsp; fino a 50 dipendenti</div>
         <div class="p-line"></div>
@@ -851,6 +841,10 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
           <li>Consumi / Telepass / carte carburante</li>
           <li>Multi-sede e distaccamenti avanzati</li>
           <li>Supporto dedicato</li>
+          <li>✦ OCR automatico note spese</li>
+          <li>✦ Alert anomalie presenze (AI)</li>
+          <li>✦ Preventivi intelligenti (AI)</li>
+          <li>✦ Report mensile AI</li>
         </ul>
         <a href="#trial" class="p-btn p-btn-outline">Inizia la prova gratuita</a>
       </div>
@@ -872,6 +866,72 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
     </div>
 
     <p class="pricing-note">Setup iniziale con costo variabile in base alla complessità · Tutti i piani includono assistenza all'avvio</p>
+
+    <!-- Plan Finder -->
+    <div class="plan-finder" id="plan-finder">
+      <div class="plan-finder-title">Qual è il piano giusto per te?</div>
+      <div class="plan-finder-sub">Rispondi a 6 domande — ti diciamo quale piano fa per te e perché.</div>
+
+      <div class="plan-question">
+        <div class="plan-q-num">1 / 6</div>
+        <div class="plan-q-text">Quanti dipendenti o collaboratori gestisci?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q1" value="10" onchange="pfUpdate()"><span>Fino a 10</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q1" value="25" onchange="pfUpdate()"><span>Da 11 a 25</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q1" value="50" onchange="pfUpdate()"><span>Da 26 a 50</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q1" value="50plus" onchange="pfUpdate()"><span>Più di 50</span></label>
+        </div>
+      </div>
+
+      <div class="plan-question">
+        <div class="plan-q-num">2 / 6</div>
+        <div class="plan-q-text">I tuoi operai ricevono e gestiscono interventi direttamente dal telefono?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q2" value="no" onchange="pfUpdate()"><span>No, gestisco solo presenze e turni</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q2" value="si" onchange="pfUpdate()"><span>Sì, aprono e chiudono ordini di lavoro in campo</span></label>
+        </div>
+      </div>
+
+      <div class="plan-question">
+        <div class="plan-q-num">3 / 6</div>
+        <div class="plan-q-text">Hai bisogno di fatturare i clienti o gestire un magazzino ricambi?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q3" value="no" onchange="pfUpdate()"><span>No, per ora non mi serve</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q3" value="si" onchange="pfUpdate()"><span>Sì, almeno uno dei due mi serve</span></label>
+        </div>
+      </div>
+
+      <div class="plan-question">
+        <div class="plan-q-num">4 / 6</div>
+        <div class="plan-q-text">I tuoi operai fotografano scontrini e ricevute per le note spese? Vorresti che venissero riconosciuti automaticamente?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q4" value="no" onchange="pfUpdate()"><span>No, inseriamo tutto a mano</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q4" value="si" onchange="pfUpdate()"><span>Sì, l'OCR automatico ci farebbe risparmiare ore ogni mese</span></label>
+        </div>
+      </div>
+
+      <div class="plan-question">
+        <div class="plan-q-num">5 / 6</div>
+        <div class="plan-q-text">Vorresti ricevere avvisi automatici in caso di anomalie nelle presenze — ritardi, ore extra, assenze non giustificate?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q5" value="no" onchange="pfUpdate()"><span>No, controllo io a fine giornata</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q5" value="si" onchange="pfUpdate()"><span>Sì, voglio essere avvisato in tempo reale</span></label>
+        </div>
+      </div>
+
+      <div class="plan-question">
+        <div class="plan-q-num">6 / 6</div>
+        <div class="plan-q-text">Ti interesserebbe avere report mensili automatici con analisi di produttività, costi e tendenze?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q6" value="no" onchange="pfUpdate()"><span>No, preparo i report da solo</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q6" value="si" onchange="pfUpdate()"><span>Sì, un'analisi automatica mi aiuterebbe a decidere meglio</span></label>
+        </div>
+      </div>
+
+      <div id="pf-progress" class="plan-progress">Rispondi a tutte le domande per vedere il piano consigliato</div>
+      <div id="pf-result" class="plan-result" style="display:none"></div>
+    </div>
+
   </section>
 </div>
 
@@ -1011,39 +1071,70 @@ document.querySelectorAll('.feat, .vert-card, .p-card, .prob-col, .stat-item').f
 });
 
 function pfUpdate() {
-  const q1 = document.querySelector('input[name="pf-q1"]:checked')?.value;
-  const q2 = document.querySelector('input[name="pf-q2"]:checked')?.value;
-  const q3 = document.querySelector('input[name="pf-q3"]:checked')?.value;
+  const names = ['pf-q1','pf-q2','pf-q3','pf-q4','pf-q5','pf-q6'];
+  const vals = names.map(n => document.querySelector('input[name="'+n+'"]:checked')?.value);
+  const answered = vals.filter(Boolean).length;
+  const progress = document.getElementById('pf-progress');
+  const result   = document.getElementById('pf-result');
 
   document.querySelectorAll('.p-card').forEach(c => c.classList.remove('pf-recommended'));
-  const result = document.getElementById('pf-result');
-  if (!q1) { result.style.display = 'none'; return; }
 
+  if (answered < 6) {
+    progress.textContent = answered === 0
+      ? 'Rispondi a tutte le domande per vedere il piano consigliato'
+      : answered + ' di 6 domande completate — continua per scoprire il tuo piano';
+    result.style.display = 'none';
+    return;
+  }
+  progress.textContent = '';
+
+  const [q1, q2, q3, q4, q5, q6] = vals;
+  const reasons = [];
+
+  // Base da numero dipendenti
   let plan = 'presenze';
-  if (q1 === '50plus') plan = 'enterprise';
-  else if (q1 === '50') plan = 'business';
-  else if (q1 === '25') plan = 'gestionale';
+  if      (q1 === '50plus') { plan = 'enterprise'; reasons.push('Hai più di 50 dipendenti → solo Enterprise copre tutti'); }
+  else if (q1 === '50')     { plan = 'max';        reasons.push('Hai fino a 50 dipendenti → coperto dal piano Max'); }
+  else if (q1 === '25')     { plan = 'gestionale'; reasons.push('Hai fino a 25 dipendenti → coperto dal piano Gestionale'); }
+  else                      {                       reasons.push('Fino a 10 dipendenti → il piano Presenze è sufficiente'); }
 
-  if (q3 === 'si' && (plan === 'presenze' || plan === 'gestionale')) plan = 'business';
-  if (q2 === 'si' && plan === 'presenze') plan = 'gestionale';
+  // Upgrade per ordini di lavoro
+  if (q2 === 'si') {
+    reasons.push('I tuoi operai gestiscono interventi in campo → ordini di lavoro inclusi dal piano Gestionale');
+    if (plan === 'presenze') plan = 'gestionale';
+  }
 
-  const labels = {
-    presenze:   'Presenze',
-    gestionale: 'Gestionale',
-    business:   'Business',
-    enterprise: 'Enterprise'
-  };
-  const prices = {
-    presenze: '€24/mese', gestionale: '€54/mese',
-    business: '€89/mese', enterprise: 'su misura'
-  };
-  const idx = { presenze: 0, gestionale: 1, business: 2, enterprise: 3 };
+  // Upgrade per fatturazione / magazzino
+  if (q3 === 'si') {
+    reasons.push('Hai bisogno di fatturazione o magazzino → disponibili dal piano Max');
+    if (plan === 'presenze' || plan === 'gestionale') plan = 'max';
+  }
+
+  // Funzioni AI
+  const aiWants = [];
+  if (q4 === 'si') aiWants.push('OCR automatico note spese');
+  if (q5 === 'si') aiWants.push('alert anomalie presenze in tempo reale');
+  if (q6 === 'si') aiWants.push('report mensile AI');
+
+  if (aiWants.length > 0) {
+    reasons.push('Vuoi le funzioni AI (' + aiWants.join(', ') + ') → incluse nel piano Max');
+    if (plan === 'presenze' || plan === 'gestionale') plan = 'max';
+  }
+
+  const labels = { presenze:'Presenze', gestionale:'Gestionale', max:'Max', enterprise:'Enterprise' };
+  const prices = { presenze:'€24/mese', gestionale:'€54/mese', max:'€89/mese', enterprise:'su misura' };
+  const idx    = { presenze:0, gestionale:1, max:2, enterprise:3 };
 
   const cards = document.querySelectorAll('.p-card');
   cards[idx[plan]]?.classList.add('pf-recommended');
-  result.innerHTML = '→ Piano consigliato: <strong>' + labels[plan] + '</strong><span>' + prices[plan] + '</span>';
+
+  const why = reasons.map(r => '<li>' + r + '</li>').join('');
+  result.innerHTML =
+    '→ Piano consigliato: <strong>' + labels[plan] + '</strong><span>' + prices[plan] + '</span>' +
+    '<ul class="plan-result-why">' + why + '</ul>';
   result.style.display = 'block';
-  setTimeout(() => cards[idx[plan]]?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 200);
+
+  setTimeout(() => cards[idx[plan]]?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 200);
 }
 </script>
 </body>
