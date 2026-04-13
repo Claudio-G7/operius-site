@@ -458,6 +458,72 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
 .hero-text > *:nth-child(4) { animation-delay: .24s; }
 .hero-text > *:nth-child(5) { animation-delay: .32s; }
 .hero-visual { animation: up .6s .2s ease both; }
+
+/* ── Plan Finder ── */
+.plan-finder {
+  background: var(--off-white);
+  border: 1px solid #e0d9d0;
+  border-radius: 16px;
+  padding: 32px 36px;
+  margin-bottom: 40px;
+}
+.plan-finder-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+.plan-finder-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.plan-question { margin-bottom: 22px; }
+.plan-q-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.plan-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.plan-opt input { display: none; }
+.plan-opt span {
+  display: inline-block;
+  padding: 7px 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 100px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all .18s;
+  color: #444;
+  background: #fff;
+  user-select: none;
+  white-space: nowrap;
+}
+.plan-opt span:hover { border-color: var(--black); color: var(--black); }
+.plan-opt input:checked + span { background: var(--black); color: #fff; border-color: var(--black); }
+.plan-result {
+  margin-top: 24px;
+  padding: 14px 20px;
+  background: var(--black);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+.plan-result span { font-weight: 400; opacity: .75; margin-left: 6px; }
+.p-card.pf-recommended:not(.featured) {
+  border-color: var(--black) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,.1) !important;
+}
+.p-card.featured.pf-recommended {
+  box-shadow: 0 12px 40px rgba(0,0,0,.25) !important;
+}
+@media (max-width: 600px) {
+  .plan-finder { padding: 24px 20px; }
+  .plan-opt span { font-size: 12px; padding: 6px 13px; }
+}
 </style>
 </head>
 <body>
@@ -703,6 +769,40 @@ footer img { height: 24px; filter: brightness(0); opacity: .4; }
       Operius funziona in pochi giorni, <strong>da 24€/mese</strong>.
     </div>
 
+    <!-- Plan Finder -->
+    <div class="plan-finder">
+      <div class="plan-finder-title">Non sai quale piano fa per te?</div>
+      <div class="plan-finder-sub">Rispondi a 3 domande — ti mostriamo il piano giusto.</div>
+
+      <div class="plan-question">
+        <div class="plan-q-text">Quanti dipendenti o collaboratori gestisci?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q1" value="10" onchange="pfUpdate()"><span>Fino a 10</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q1" value="25" onchange="pfUpdate()"><span>Da 11 a 25</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q1" value="50" onchange="pfUpdate()"><span>Da 26 a 50</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q1" value="50plus" onchange="pfUpdate()"><span>Più di 50</span></label>
+        </div>
+      </div>
+
+      <div class="plan-question">
+        <div class="plan-q-text">Hai bisogno di inviare ordini di lavoro ai tuoi operai?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q2" value="no" onchange="pfUpdate()"><span>No, mi bastano presenze e turni</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q2" value="si" onchange="pfUpdate()"><span>Sì, gestisco anche interventi in campo</span></label>
+        </div>
+      </div>
+
+      <div class="plan-question">
+        <div class="plan-q-text">Hai bisogno di fatturare o gestire il magazzino ricambi?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q3" value="no" onchange="pfUpdate()"><span>No</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q3" value="si" onchange="pfUpdate()"><span>Sì, anche fatturazione o magazzino</span></label>
+        </div>
+      </div>
+
+      <div id="pf-result" class="plan-result" style="display:none"></div>
+    </div>
+
     <div class="pricing-grid">
       <div class="p-card">
         <div class="p-plan">Presenze</div>
@@ -909,6 +1009,42 @@ document.querySelectorAll('.feat, .vert-card, .p-card, .prob-col, .stat-item').f
   el.style.opacity = '0';
   io.observe(el);
 });
+
+function pfUpdate() {
+  const q1 = document.querySelector('input[name="pf-q1"]:checked')?.value;
+  const q2 = document.querySelector('input[name="pf-q2"]:checked')?.value;
+  const q3 = document.querySelector('input[name="pf-q3"]:checked')?.value;
+
+  document.querySelectorAll('.p-card').forEach(c => c.classList.remove('pf-recommended'));
+  const result = document.getElementById('pf-result');
+  if (!q1) { result.style.display = 'none'; return; }
+
+  let plan = 'presenze';
+  if (q1 === '50plus') plan = 'enterprise';
+  else if (q1 === '50') plan = 'business';
+  else if (q1 === '25') plan = 'gestionale';
+
+  if (q3 === 'si' && (plan === 'presenze' || plan === 'gestionale')) plan = 'business';
+  if (q2 === 'si' && plan === 'presenze') plan = 'gestionale';
+
+  const labels = {
+    presenze:   'Presenze',
+    gestionale: 'Gestionale',
+    business:   'Business',
+    enterprise: 'Enterprise'
+  };
+  const prices = {
+    presenze: '€24/mese', gestionale: '€54/mese',
+    business: '€89/mese', enterprise: 'su misura'
+  };
+  const idx = { presenze: 0, gestionale: 1, business: 2, enterprise: 3 };
+
+  const cards = document.querySelectorAll('.p-card');
+  cards[idx[plan]]?.classList.add('pf-recommended');
+  result.innerHTML = '→ Piano consigliato: <strong>' + labels[plan] + '</strong><span>' + prices[plan] + '</span>';
+  result.style.display = 'block';
+  setTimeout(() => cards[idx[plan]]?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 200);
+}
 </script>
 </body>
 </html>
