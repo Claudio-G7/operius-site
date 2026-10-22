@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operius — Gestionale per squadre in campo | Bollatrice geolocalizzata</title>
+<meta name="description" content="Gestisci presenze, turni e ordini di lavoro per idraulici, elettricisti, edili e officine. Bollatrice GPS dal cellulare, nessun hardware. Prova gratis 30 giorni.">
+<meta name="keywords" content="gestionale squadre campo, bollatrice geolocalizzata, gestione presenze operai, turni dipendenti smartphone, ordini lavoro mobili, software idraulici elettricisti officine edilizia">
+<link rel="canonical" href="https://operius.it/">
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://operius.it/">
+<meta property="og:title" content="Operius — Gestionale per squadre in campo | Bollatrice geolocalizzata">
+<meta property="og:description" content="Gestisci presenze, turni e ordini di lavoro per idraulici, elettricisti, edili e officine. Bollatrice GPS dal cellulare. Prova gratis 30 giorni, nessuna carta richiesta.">
+<meta property="og:image" content="https://operius.it/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Favicon & App Icon -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAABmJLR0QA/wD/AP+gvaeTAAAZN0lEQVR4nO2df1RT5/3H7wUJVKNgKFWKiAgR6Bk47AYqECxBpAiJq2XroeBvBDt6QKaDsblimWvVFRRpiaFKJkirDFgsghHHj0Cl4hmcSa1Q8AegsAqFkEaUQJLvH/meHI4SSJ7nuTe57L7+8BxCPp/nQ3zn3ud+ns/zeXCNRoPR0EyHhakDoDFfaHHQ6IUWB41eaHHQ6IUWB41eaHHQ6IUWB41eaHHQ6IUWB41eaHHQ6IUWB41eaHHQ6IUWB41eaHHQ6GXui2NoaIhCbs0KfK7Wc3R0dIjF4rKysidPnrS1tTEYDITOJyYmXn/9dRzHIyIi+Hy+v78/juMI/ZsJc0ocarX61q1bEomktLT03r17utdzc3NjY2MRDlRUVJScnKz70cnJKTIyMjw8PCAgYN68eQgHMi1zQRwqlermzZtisVgsFv/3v/998Q2urq4tLS2WlpZIhlOr1f7+/nfv3n3xV/b29qGhoXw+n8vlWllZIRnOhFBYHDpNVFRUPH78eOY3i0QiHo+HZFyxWLxz586Z37N48eKwsDA+nx8SEoL2jkYm1BPH+Ph4XV2dRCKpqqoaHBw00Mrb27u+vh7JzIDL5ba1tRn4Zltb2w0bNmzatInH482fPx9+dDKhmDhSUlLKy8sVCgWAbXl5+YYNGyADqK+vf+uttwAMmUzmW2+9deLECcgAyIRij7Ld3d1gysAwDMl/TE5ODpihQqGYdppizlBMHN7e3sC2Uqn05s2bMKO3tbU1NjYCm8MEbxL+h8SBYdipU6dgzLOzs2HMaXEQC+Tne/ny5Y6ODjDbrq6u6upqmNFpcRCLh4eHtbU1sLlGo8nLywOzPXHihFqtBh6awWCsWrUK2NwkUEwcDAbDw8MDxkNpaWlfX5+xVv39/WVlZTDjenl5US7hQTFxYNAX54mJCYFAYKxVXl6eUqmEGZdy9xTsf1AcGIaJRCKj1lSHh4eLioogB6XFQQY+Pj6QHp4+fXrmzBnD3y8UCp88eQI5KHzY5EOxDCmGYQqFYsWKFTBzQwzD5s2bx2QyDR9xcnISZjgLC4sHDx4YPqKZQL31ZSaTuWLFiqkr8gBMTk7KZDJUIc2Kq6sr5ZSBUfG2glHw/k25gLVQUhyUu39TLmAtlBQH5b6IlAtYCyXFsXr1alOHYBy0OMjDwcHhlVdeMXUUhrJkyRIKRTsVksTR1NR0//59JK40Gk1+fj6ZzxqQjIyM5Ofno0oZ3L9/v6mpCYmrWSEjz/Ho0SMOh6NQKGJiYjIyMhwcHIBdDQ0NJSUlXb16FWF45BAcHCwQCJYsWQLsYWRkJDc3VyAQ2NjYNDQ0LF++HGF400K4OCYnJ6Oiom7cuKH9ccGCBUlJScnJyTY2Nsa6amho2Ldv37T15ZTAwcEhLy9v48aNxhoqlcqzZ88ePXp0dHRU+8qaNWuqq6uJLnC3zMzMJHSAo0ePXrx4UffjxMTE119/XVJSwmQyvb29LSwMuq9NTk4eP348OTn5p59+IixSwhkbGysrK5PJZBwOx8B9Emq1+tKlS++++255efn4+Lju9YGBAQsLi8DAQMKCxTCirxzNzc08Hk+lUk37Ww8Pj/T0dD6fP7OT3t7e+Ph4yAo/s+LnP/95QUGBm5vbzG9raGj485//3N7ePu1vLSwsysvLORwOAQH+PwSKQ/sVefjw4cxvCw4OzszM1Pd0KhaLU1JSdJfTOQOTyczKytq+ffu0v+3o6Dh8+LBEIpnZiaOjY2NjI4vFIiBADCNUHHFxcZcvXzYoCBzn8XiZmZkuLi66FxUKxYEDB6bekuYePB7v5MmTtra2ulf6+/uPHz9eXFys73L7HGFhYV988QVBO3WJEsfnn3/++9//3igTBoOxc+fO9PR0W1vbtra2+Ph4yNU1SuDs7CwUCv39/Z88eZKXl3fy5Mlnz54Z5eH48eO7d+8mIjZCxHHnzh0ul2vsH6mFxWJFRERcuHBhYmICeWDmiZWV1W9+85uqqqrh4WEAcxsbm3/9619eXl7IA0MvjvHx8dDQ0Nu3b6N1SzMDHh4etbW1L730Elq36DOkGRkZtDJIprOz89ChQ8jdIr5yVFZWbtu2DaFDGsM5c+bMr371K4QOUYpDmyYfGRlB5ZBQWCyWm5ubi4vLK6+8Ym9vv2jRIm3flYmJCblcPjw8/MMPP/T09Ny9e5cqf9HixYulUqmTkxMqh8jEoVKp+Hz+9evXkXgjAhzHf/azn3E4nHXr1vn6+jo6Ohpo2N/f39bW1tzcLJVKb9++bc5Vt+vXrxeLxaja1CATx7Fjxz7++GMkrtCC47i/v//WrVs3b968dOlSSG8DAwOVlZXl5eUtLS3mqZL09HRjkwj6QCOOyclJDocDvA2VIBYtWhQbG7tz585ZE9UAdHd3FxYWFhcXm9tyj6enp1QqRdKaDNmVY3BwMDo6+tatW0i8QcJisX7729/u2bNn4cKFhA4kl8sLCgry8/PBUhTI8fHxKS0thSmKmArKCeno6Og777yjW503CdbW1omJifv371+0aBFpg8rl8uzs7NOnT09dOCUff3//L7/8cmoyHhLEj7JPnz6Ni4urra1F6NNwgoOD//a3vxFxEzGEu3fvpqamwnR3gSEkJKSoqAhtHgx9hlSpVMbHx3/11Vdo3c7M/Pnzs7KyduzYYdpmsRqNprCw8NChQ0+fPiVz3KioqIKCAuS7+AlZW1GpVMnJySUlJcg9T4unp6dIJDKf7hednZ3bt2///vvvyRkuJibm5MmTqB5fp0JIgbGlpeWpU6cSEhKIcP4ckZGRNTU15qMMDMM8PDyuXbsWHh5OwlgJCQmnTp0iQhkYcWWCOI6Hhoaq1WpC02L79u3Lzc2F6fVDEAwGY8uWLTKZrLW1lbhRDh48mJmZSdydlNga0qCgICaTWV9fT4TzP/zhD4cOHTLbjvQWFhYbN24k6OuB43hWVlZqaipyz1MhvMDYz8/v1VdframpQTu5QZgHJJSgoCDk+rC0tMzJydmzZw9Cn9NCUn+OioqKxMREVPU7+/btO3LkCBJX5JCWllZQUIDElZWVlUAgQLv6qg/ymrfU1NRs27YNPk0UFRVVWFho4J4GM0GlUsXFxV25cgXSj7W19blz5wB2voBBnjhGR0c9PDwg2655eXldvXp1wYIFqKIijZ9++ik0NLSrqwvGCYPB6OzsRJgDnRnyvn8SiQRSGfPnzxeJRFRUBoZhCxcuFIlEkBlMpVI5634FhJAnDvic6ZEjR9hsNpJgTIKXl9fhw4chnZCZeibptjI2Nubu7g5Wj65lw4YNZWVlyB9ce3t779y5093dPTQ0pG0ZuGDBAgcHBzc3t9dee83Z2RntcBqNZsuWLTDrLzY2Nt3d3eQc3UJSw7iamhoYZVhbW3/yySeolKHRaJqbmy9evFhfX9/b2zvDO11cXN54443o6Oi1a9ciGR3H8ezs7MDAQOCJ+bNnz2pqambdQ4oEkm4rly5dgjF/7733XF1d4cNQKpXnz5/38/OLjIw8d+7czMrAMKynp0ckEm3evNnf3//8+fNIHsXd3NwgFxYgP0zDIeO2Mj4+zmazgQ/Rsbe3b21thS/baWxsPHjwIMx62MqVK48dOxYSEgIZyejo6Jo1a4DrlplMZldXFwmLBmRcOWpra4GVgWFYUlISpDKePXuWkpLC5/MhV0rv3bv39ttvp6amwtwiMQyztbXdt28fsLlCoSCnYoYMcVRWVgLb2tnZQW4EHRgY2Lhx47lz52CcTEUkEm3atAmyh0x8fDxM21qYj9RwCBfHxMQEzBk2sbGxMB/i3bt3w8PDke/Aa29vDw8PhzmzzdbWFuYc5OrqahL2EhMujsbGRuDmbjiO79ixA3jogYGBrVu3ApyuYgi9vb18Pv/Ro0fAHmY9nHYGZDIZCfWIhIsDJmmzbt26lStXgtk+e/bs17/+9azPIzD09/fHxMQAP5Sy2exf/OIXwKOTkA0jVhwqlaqqqgrYHOwEVy3p6ekk7Odub2/PyMgANt+6dSuwbVVVlYENXoAhShxyuby9vV0oFBp+aPRz4Di+efNmMNv6+nqEM9CZKSwsbGhoALONjIwEzq0NDg4KhcL29na5XA7mYVZg8xxjY2M9PT29vb3af3XAN5H18fEBKyFTKpUBAQFknvDLZrObmprAGj8GBgZ+9913kAHY2dktn4KLi4v2X8gsuxHpc7VaXVtbq/vv7+np6evrM+o8LKMA7pN38eJFks9+7urqKi0tjYmJAbDlcDjw4pDJZDKZ7MXthi+//LKzs7NWK1pCQkIML4Ux4soxNja2bNkyI0KGo7i4OCIiwlgrjUbj5+dH/sHg7u7uN27cALhHXLp0CeaJzFgePnxo+OXEfOupfH19AayuX79ukiPju7u7wfaBgv2Z5GCm4mCxWIb3z5jKP/7xD+TBGEhpaSmA1bJly8jc1msUZioO4P2udXV1aCMxHLDpM47j7u7uqGNBg5mKY2q3WsPRzpSRB2Mg9+/fn7Vd87SQcP4BGGYqDrCjJ+Cn/ZDcuXMHwAq+3xBBmKk4wPp5m2QqOpXu7m4AK+Kal0NipuIAW4n98ccfkUdCQgBEtx8CxkzFAdZqAv5QcUjAaprMcCO4FjMVB405YKbiANv+ZPL9TmB3Q9N2EpsBMxUH2PX55ZdfRh6JUdjb2wNYmVuzSh1mKg6wzo2mahWnA2xDnpm0qXwRMxUHWPnua6+9hjwSowA79GRgYAB5JEgwU3GAJTqdnZ1NmG1cuXIlWFN6E2Z1Z8ZMxQGWTcIwDH7HETBvvPEGgJVGowH+Y4nGTMUxMjLS398PYBgdHY08GEKH7uvroyekRtPW1gZgtXbtWpMscrLZ7F/+8pcAhmB/JjkYUSZoY2Nz8eJF0soEv/nmG4ACYxzHk5OT33//fSJCmoH9+/eDlQp/8803yIPR8WKZoFGnxJtvgbG3tzdYVffExERAQACZN/JVq1Y1NTWBnWIREBAAtpY7FYIKjInaZS+Xy3t6epqamv74xz+CecBx/Pbt22DL2Q0NDeT029Pyz3/+E6wcuq+vT99R3IZw5MiRwMBAFxcXgmrJiJpzLFq0yNvbe+/evcBnf2g0GuDtwsHBwaRV7e7evRu4UB5mP7SDg8PevXu9vb2JqzIkdkJqaWkJUEGuo7y8HNj2o48+8vb2BjY3kNWrV//lL38BNi8rKwO2jYiIIKjluQ7Cn1aioqKAbW/cuAFcv2NtbX3hwgVCc2JOTk7FxcXAC+6dnZ0wndFhPlgDIVwcQUFBdnZ2YLba40uAh166dGlZWRlB+li+fLlYLIY5pxPmT7OzswsKCgI2NxDCxWFlZfXmm28Cm0OesOfm5nblyhXk95fVq1dLJBLgDgAYho2MjJw/fx7Y/M033wTbfWkUZCTBIiMjgW3lcvnnn38OM/rSpUuvXr0K0wzjOXbv3n3lyhWwEmgdBQUFMHVrMB+p4VCgYRyLxWptbYWfk3/99dcHDhzo7OwE9uDm5nbs2DGwNZSpyGQyX1/f0dFRMPM51TDO2toappf78PBwTk4OfBgBAQFSqTQvLw8gv85msz/77LPm5mZ4ZWAYlp2dDawMDMM2btxITtkpSR2MxWIxzIXd2tq6qakJVS2PRqO5ceNGaWlpXV3dgwcPZninq6trSEjI22+/7efnh6pFbldXV1BQEEwb+MLCQnKa1FKmvXVwcHB5eTny9tYPHz7Utrd+/Pixrr31kiVL3N3dvby8YB5GpkWj0URFRcGczTMH21vPnz+fy+VevnwZ2ENDQ4NIJEI4r9SybNmyZcuWkXaCiVAohDy1icvlkqMMjMwle/ikzZ/+9CeY6aTJuX37NvyhaSTkvnRQ7DCeVatWXbt2DaYzqamQy+VcLhdyw+acPYynpaUFfsbw/fffJyQkqNVqJCGRhkql2rNnD/xWXhzHW1pakIRkCCSJo6KiIjY2Fsnunerq6vT0dHg/ZHLw4MFr167B+xkfH4+Nja2oqIB3ZQiEHx2KYVhRUVFSUtLk5CQqh62trWq1moTFBSRkZWUJBAJU3tRq9eXLlx0dHWEKQQyEcHF8+umnaWlpyG8E169fp4Q+srKykGTwpqLRaCQSCZPJ9PPzQ+v5OYgVx0cffQRT7jAz169f//HHH43qnUgmKpXqwIEDCK8Zz1FXV0f014OopxWNRpORkXH69GkinE8lPDxcKBSa2/OLXC7fs2cPknnGzCQkJPz1r38l6Mx2QsShUqmSk5NLSkqQe54WNpv997//3dPTk5zhZuW7777bsWMHaRXOMTExJ0+eJKIqDP0FWalU7tq1izRlYBjW1dUVEhJSUFBAWs5GHxqN5vTp01wul8za95KSkl27dkEmkKYF8ZXj6dOncXFx5Bwy9SIBAQE5OTmm6tzY1dW1f/9+yOw4MCEhIUVFRZCHGj8HSnGMjo6+8847YI18UcFgMBISElJTU0lLI2IYJpPJsrOzhUIhEV9fw/H39//yyy8R/uHIxDE4OBgdHf1ib3aTYGdn995778XHxxMtEZlMJhQK8/PzYeozEOLj41NaWgq8HeQ50IhjcnKSw+F0dHTAu0IIk8l89913d+7cuWrVKuTOOzo6CgsLS0pKTN6l7jk8PT2lUinY9rvnQDMhnTdv3pYtW5C4QohCoTh9+vTatWvDwsIEAgFYe+Hn6O3tzc/PDw0NXb9+PWQdKEFs2bIFiTIwhLcVlUrF5/NNNR0zEC8vLw6H4+fnt2bNGgM7aGs0mp6entbW1paWFqlUam5Xx+dYv369WCxG9ViLckL66NEjDocDfNAyySxcuNDd3X358uVLly5lsVgLFy7UTvXHxsYUCsXw8PDAwEBfX19XVxfMiclksnjxYqlUirB6DfGjbGVl5bZt2xA6pDGcM2fOoN0+jjgJFhkZibySj8YQdu3ahbyxAPr0+fj4eGhoKAnHdtLo8PDwqK2tRZsBw4hIn1tbWwuFQqM6yEyFxWLFxsaSsNfPfLCysoqNjQU+O8HGxubs2bPIlYERVAnm5eX14YcfGmulTW7++9//zs3NvXLlCsxOVArh7Oz81Vdf5ebm/uc//0lLSwP4UmVlZYH1P50VAguM4+LiDNyLgOM4j8fLzMyc+nipUCgOHjx44cIFgsIzB/h8/okTJ6amcfv7+48fP15cXGzgadNhYWFffPEFlZbstchkMg6HM2vqKTg4+PDhwz4+PtP+ViwWp6SkmElyGiFMJjMrK2v79u3T/razszMzM1MikczsxNHRsbGxkbizfIjdmtDc3Mzj8fR9CTw8PNLT02fd2dfb27t3714yq66JxtfXVygUzrq7s6Gh4YMPPtC3XGVhYVFeXg7cccoQiC2wW7duXWpq6ouvOzo65uTkNDU1GbLnc/ny5ZWVlWlpaeZZDmgUOI4nJCRUV1cbsu83ODi4tra2sLBw2mTugQMHCFUGRsKmpsnJyaioKN06/oIFC5KSkpKTkwFmXlKpNDExEaxnvjng4ODw6aefhoaGGmuoVCrPnj179OhR3e11zZo11dXVRD/TkbHjTZtWVygUMTExGRkZMAvKQ0ND77///qw3YzMkODhYIBDAtHwZGRnJzc0VCAQ2NjYNDQ0kHAFA0nbIpqYmJycnV1dXeFcajUYgEBw+fNi0lTWGw2AwPvjgg8TERCTPFPfv33/06FFgYCC8q1khb68sWjw9PR8/fmzqKAzCwcGBovu/KTnF++GHH6iiDAzDBgcHKRTtVCgpDjMpRjQcygWshZLiaG9vN3UIxkG5gLVQUhyU+yJSLmAtlBQH5b6IlAtYC/WeVhQKxYoVKyC37c+bN8/w7bUKhQKyf4SFhcWDBw/MbUPvrJDUMA4h7e3t8A0dfve736WlpRn45o8//vjYsWMww6nV6m+//Xbt2rUwTsiHercV+Pv3Sy+9tHv3bsPfv3fvXviD0Kk47aCeOL799ltIDzt27DDqYHMWixUXFwc5KBWnHdQTB+RX0MrKKjEx0VirpKQkBoMBMy4tDsJRKpWQqejo6GhnZ2djrV599dWtW7fCjNvR0UGVxSAdFBMH5EeM43hSUhKYbUpKCkxBCbysyYdi4oC8OG/evBm4ARCbzYY5VQij4J3lf0sckIcRT1vVZji0OIgF5vPlcDhgJ4rr8PX1heneR4uDWNhsNnCeMSUlBT6A/fv3gxkymUxT9aMChnrp8/Hx8bq6OolEUlVVNTg4aKCVt7d3fX09klosLpfb1tZm4JttbW03bNiwadMmHo9H2lEYqKCeOHSoVKqbN2+KxeKKiopZq2lEIhGPx0MyriGnTi1evDgsLIzP54eEhEAmSEwIhcWhQ6cSsVg8bW26q6trS0sLqpYmarXa399/2iMQ7O3tQ0ND+Xw+l8udA9t954I4dKjV6lu3bkkkktLS0nv37ulez83NjY2NRThQUVFRcnKy7kcnJ6fIyMjw8PCAgABULZfMgTkljql0dHSIxeKysrInT560tbWhvbZPTEy8/vrrOI5HRETw+Xx/f3+CdqualjkrDh1DQ0NGLbOZ1q1ZMffFQQMMxfIcNGRCi4NGL7Q4aPRCi4NGL7Q4aPRCi4NGL7Q4aPRCi4NGL7Q4aPRCi4NGL7Q4aPRCi4NGL7Q4aPRCi4NGL/8H2YSoPGMWb24AAAAASUVORK5CYII=">
+<meta name="apple-mobile-web-app-title" content="Operius">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%23111' fill-rule='evenodd' d='M82.39,43.70L91.69,44.88L91.69,55.12L82.39,56.30L79.91,63.95L86.73,70.36L80.72,78.64L72.51,74.14L66,78.86L67.75,88.06L58.01,91.23L54.02,82.75L45.98,82.75L41.99,91.23L32.25,88.06L34,78.86L27.49,74.14L19.28,78.64L13.27,70.36L20.09,63.95L17.61,56.30L8.31,55.12L8.31,44.88L17.61,43.70L20.09,36.05L13.27,29.64L19.28,21.36L27.49,25.86L34,21.14L32.25,11.94L41.99,8.77L45.98,17.25L54.02,17.25L58.01,8.77L67.75,11.94L66,21.14L72.51,25.86L80.72,21.36L86.73,29.64L79.91,36.05ZM72,50A22,22 0 1,0 28,50A22,22 0 1,0 72,50Z'/><circle cx='50' cy='50' r='12' fill='%23111'/></svg>" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:   #111111;
+  --white:   #ffffff;
+  --off:     #f8f8f8;
+  --border:  #e8e8e8;
+  --muted:   #777777;
+  --font-h:  'Inter', system-ui, -apple-system, sans-serif;
+  --font-b:  'Inter', system-ui, -apple-system, sans-serif;
+
+  /* vertical accent colours */
+  --c-idro:   #1a6cf0;
+  --c-elett:  #f5a623;
+  --c-off:    #e05a2b;
+  --c-gym:    #7c3aed;
+  --c-giar:   #1fa35c;
+  --c-edil:   #c0392b;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-b); background: var(--white); color: var(--black); overflow-x: hidden; line-height: 1; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo img { height: 32px; display: block; filter: brightness(0); }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .15s; }
+.nav-links a:hover { color: var(--black); }
+.nav-cta {
+  background: var(--black) !important; color: var(--white) !important;
+  padding: 8px 20px !important; border-radius: 6px; font-size: 14px !important;
+  transition: opacity .15s !important;
+}
+.nav-cta:hover { opacity: .8 !important; }
+
+/* ─── HERO ─── */
+.hero {
+  padding: 140px 48px 80px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  max-width: 1200px; margin: 0 auto;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: var(--font-h); font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 700; line-height: 1.1; letter-spacing: -.02em;
+  margin-bottom: 24px;
+}
+.hero h1 span { text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 3px; }
+.hero-sub {
+  font-size: 17px; color: var(--muted); line-height: 1.7;
+  max-width: 420px; margin-bottom: 36px; font-weight: 400;
+}
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+.btn-dark {
+  background: var(--black); color: var(--white);
+  padding: 13px 26px; border-radius: 6px; font-size: 15px; font-weight: 500;
+  text-decoration: none; transition: opacity .15s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-dark:hover { opacity: .8; }
+.btn-ghost {
+  background: transparent; color: var(--black);
+  padding: 13px 26px; border-radius: 6px; font-size: 15px; font-weight: 500;
+  text-decoration: none; border: 1px solid var(--border); transition: border-color .15s;
+}
+.btn-ghost:hover { border-color: #999; }
+.hero-proof { font-size: 12px; color: #aaa; }
+.hero-proof strong { color: var(--muted); }
+
+/* ─── DASHBOARD MOCKUP ─── */
+.dash {
+  background: var(--off); border: 1px solid var(--border); border-radius: 16px;
+  overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,.06);
+}
+.dash-bar {
+  background: var(--white); border-bottom: 1px solid var(--border);
+  padding: 12px 16px; display: flex; align-items: center; gap: 8px;
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-r { background: #ff5f57; } .dot-y { background: #febc2e; } .dot-g { background: #28c840; }
+.dash-url {
+  margin-left: 8px; background: var(--off); border: 1px solid var(--border);
+  border-radius: 4px; padding: 3px 12px; font-size: 11px; color: var(--muted);
+}
+.dash-body { padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.dash-kpis { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.kpi {
+  background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+  padding: 14px; border-top: 3px solid var(--border);
+}
+.kpi.blue  { border-top-color: var(--c-idro); }
+.kpi.orange{ border-top-color: var(--c-off); }
+.kpi.purple{ border-top-color: var(--c-gym); }
+.kpi-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+.kpi-val   { font-family: var(--font-h); font-size: 26px; font-weight: 800; line-height: 1; margin-bottom: 2px; }
+.kpi-sub   { font-size: 10px; color: var(--muted); }
+.dash-table { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.dt-head {
+  display: grid; grid-template-columns: 1fr auto auto;
+  padding: 8px 14px; background: var(--off); border-bottom: 1px solid var(--border);
+  font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em;
+}
+.dt-row {
+  display: grid; grid-template-columns: 1fr auto auto;
+  align-items: center; padding: 9px 14px; border-bottom: 1px solid #f0f0f0;
+  gap: 12px;
+}
+.dt-row:last-child { border-bottom: none; }
+.avatar {
+  width: 26px; height: 26px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: white; margin-right: 8px; flex-shrink: 0;
+}
+.dt-name-wrap { display: flex; align-items: center; }
+.dt-name { font-size: 13px; font-weight: 500; }
+.dt-role { font-size: 11px; color: var(--muted); }
+.dt-time { font-size: 12px; font-weight: 600; font-family: monospace; }
+.pill {
+  font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 100px;
+  white-space: nowrap;
+}
+.pill-green  { background: #e8f8f0; color: #1a7a45; }
+.pill-yellow { background: #fff8e6; color: #a06000; }
+.pill-gray   { background: #f0f0f0; color: #666; }
+
+/* ─── DIVIDER ─── */
+.divider { border: none; border-top: 1px solid var(--border); }
+
+/* ─── SECTION BASE ─── */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.section { padding: 96px 0; }
+.eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 16px;
+}
+.section-h {
+  font-family: var(--font-h); font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 700; letter-spacing: -.02em; line-height: 1.1; margin-bottom: 16px;
+}
+.section-p { font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 480px; }
+
+/* ─── FEATURES ─── */
+.features-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--border); border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden; margin-top: 56px;
+}
+.feat {
+  background: var(--white); padding: 36px 32px;
+  transition: background .2s;
+}
+.feat:hover { background: var(--off); }
+.feat-icon {
+  width: 40px; height: 40px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 20px;
+}
+.feat-h { font-family: var(--font-h); font-size: 17px; font-weight: 700; margin-bottom: 8px; letter-spacing: -.02em; }
+.feat-p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+/* ─── VERTICALS ─── */
+.verticals-section { background: var(--black); color: var(--white); }
+.verticals-section .eyebrow { color: #666; }
+.verticals-section .section-h { color: var(--white); }
+.verticals-section .section-p { color: #666; }
+.vert-grid {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px;
+  background: #222; border: 1px solid #222; border-radius: 12px;
+  overflow: hidden; margin-top: 56px;
+}
+.vert-card {
+  background: #111; padding: 28px 20px;
+  border-top: 3px solid transparent;
+  transition: background .2s;
+  cursor: default;
+}
+.vert-card:hover { background: #1a1a1a; }
+.vert-card.idro  { border-top-color: var(--c-idro); }
+.vert-card.elett { border-top-color: var(--c-elett); }
+.vert-card.off   { border-top-color: var(--c-off); }
+.vert-card.gym   { border-top-color: var(--c-gym); }
+.vert-card.giar  { border-top-color: var(--c-giar); }
+.vert-card.edil  { border-top-color: var(--c-edil); }
+.vert-emoji { font-size: 28px; display: block; margin-bottom: 12px; }
+.vert-name { font-family: var(--font-h); font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--white); }
+.vert-desc { font-size: 12px; color: #555; line-height: 1.5; }
+
+/* ─── PRICING ─── */
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  margin-top: 56px;
+}
+.p-card {
+  border: 1px solid var(--border); border-radius: 12px; padding: 36px;
+  position: relative; transition: box-shadow .2s;
+}
+.p-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.07); }
+.p-card.featured { background: var(--black); color: var(--white); border-color: var(--black); }
+.p-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--black); color: white; font-size: 10px; font-weight: 700;
+  padding: 4px 12px; border-radius: 100px; text-transform: uppercase; letter-spacing: .08em;
+  white-space: nowrap;
+}
+.p-card.featured .p-badge { background: white; color: var(--black); }
+.p-plan {
+  font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 16px;
+}
+.p-card.featured .p-plan { color: #777; }
+.p-price {
+  font-family: var(--font-h); font-size: 52px; font-weight: 800;
+  letter-spacing: -.04em; line-height: 1; margin-bottom: 4px;
+}
+.p-period { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+.p-card.featured .p-period { color: #666; }
+.p-line { height: 1px; background: var(--border); margin-bottom: 24px; }
+.p-card.featured .p-line { background: #2a2a2a; }
+.p-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.p-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--muted); line-height: 1.4; }
+.p-card.featured .p-list li { color: #999; }
+.p-list li::before { content: '—'; color: var(--black); font-weight: 600; flex-shrink: 0; margin-top: 1px; }
+.p-card.featured .p-list li::before { color: var(--white); }
+.p-btn {
+  display: block; text-align: center; padding: 13px; border-radius: 6px;
+  font-size: 14px; font-weight: 600; text-decoration: none; transition: all .15s;
+}
+.p-btn-outline { border: 1px solid var(--border); color: var(--black); }
+.p-btn-outline:hover { border-color: var(--black); background: var(--off); }
+.p-btn-white { background: white; color: var(--black); }
+.p-btn-white:hover { background: #eee; }
+.pricing-note { text-align: center; margin-top: 24px; font-size: 13px; color: var(--muted); }
+
+/* ─── FORM ─── */
+.form-section {
+  background: var(--off); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.form-inner {
+  max-width: 600px; margin: 0 auto; padding: 96px 48px; text-align: center;
+}
+.form-inner .section-h { font-size: clamp(24px,3vw,38px); }
+.form-inner .section-p { margin: 0 auto 40px; }
+form { display: flex; flex-direction: column; gap: 12px; text-align: left; }
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.f-input {
+  width: 100%; padding: 13px 16px; font-family: var(--font-b); font-size: 14px;
+  border: 1px solid var(--border); border-radius: 6px; background: var(--white);
+  color: var(--black); outline: none; transition: border-color .15s;
+  appearance: none;
+}
+.f-input:focus { border-color: var(--black); }
+.f-input::placeholder { color: #bbb; }
+.f-submit {
+  background: var(--black); color: var(--white); padding: 15px; border-radius: 6px;
+  font-family: var(--font-b); font-size: 15px; font-weight: 600; border: none;
+  cursor: pointer; transition: opacity .15s;
+}
+.f-submit:hover { opacity: .8; }
+.f-note { text-align: center; font-size: 12px; color: #bbb; margin-top: 4px; }
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 48px; display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  border-top: 1px solid var(--border);
+}
+footer img { height: 24px; filter: brightness(0); opacity: .4; }
+.foot-links { display: flex; gap: 24px; }
+.foot-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .15s; }
+.foot-links a:hover { color: var(--black); }
+.foot-copy { font-size: 12px; color: #ccc; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; gap: 40px; }
+  .wrap { padding: 0 24px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .vert-grid { grid-template-columns: repeat(2,1fr); }
+  .pricing-grid { grid-template-columns: 1fr 1fr; }
+  .pricing-grid .p-card { padding: 24px; }
+  .f-row { grid-template-columns: 1fr; }
+  footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+}
+
+/* ─── HERO BADGE ─── */
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--off); border: 1px solid var(--border); border-radius: 100px;
+  padding: 5px 12px; font-size: 12px; font-weight: 500; color: var(--black);
+  margin-bottom: 16px;
+}
+
+/* ─── PROBLEMS SECTION ─── */
+.problems-section {
+  background: var(--off);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.problems-inner {
+  max-width: 1200px; margin: 0 auto; padding: 80px 48px;
+}
+.problems-header { text-align: center; margin-bottom: 56px; }
+.problems-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: var(--border); border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden;
+}
+.prob-col {
+  background: var(--white); padding: 40px 36px;
+}
+.prob-col.bad  { background: #fffaf8; }
+.prob-col.good { background: var(--white); }
+.prob-col-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 24px; display: flex; align-items: center; gap: 8px;
+}
+.prob-col.bad  .prob-col-label { color: #c0392b; }
+.prob-col.good .prob-col-label { color: #1a7a45; }
+.prob-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.prob-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 15px; line-height: 1.5; color: var(--black);
+}
+.prob-icon { flex-shrink: 0; font-size: 16px; margin-top: 1px; }
+
+/* ─── CTA STRIP ─── */
+.cta-strip {
+  background: var(--black); color: var(--white);
+  padding: 64px 48px; text-align: center;
+}
+.cta-strip-h {
+  font-family: var(--font-h); font-size: clamp(24px, 3vw, 38px);
+  font-weight: 700; letter-spacing: -.02em; line-height: 1.15;
+  margin-bottom: 12px;
+}
+.cta-strip-sub {
+  font-size: 16px; color: #888; margin-bottom: 32px;
+}
+.btn-white {
+  background: var(--white); color: var(--black);
+  padding: 13px 28px; border-radius: 6px; font-size: 15px; font-weight: 600;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  transition: opacity .15s;
+}
+.btn-white:hover { opacity: .88; }
+.cta-strip-note { margin-top: 16px; font-size: 12px; color: #555; }
+
+/* ─── TRUST ROW ─── */
+.trust-row {
+  display: flex; justify-content: center; align-items: center;
+  gap: 24px; flex-wrap: wrap;
+  margin-top: 20px; font-size: 13px; color: #aaa;
+}
+.trust-row span { display: flex; align-items: center; gap: 5px; }
+
+/* ─── PRICING COMPARE NOTE ─── */
+.pricing-compare {
+  background: var(--off); border: 1px solid var(--border); border-radius: 8px;
+  padding: 16px 20px; margin-bottom: 40px;
+  font-size: 14px; color: var(--muted); line-height: 1.6; text-align: center;
+}
+.pricing-compare strong { color: var(--black); }
+
+/* ─── PRICING ENTERPRISE ─── */
+.p-enterprise {
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 36px; margin-top: 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+}
+.p-enterprise-text .p-plan { margin-bottom: 8px; }
+.p-enterprise-text p { font-size: 14px; color: var(--muted); line-height: 1.6; max-width: 560px; }
+.p-btn-dark {
+  background: var(--black); color: var(--white); white-space: nowrap;
+  display: inline-block; text-align: center; padding: 13px 24px;
+  border-radius: 6px; font-size: 14px; font-weight: 600;
+  text-decoration: none; transition: opacity .15s; flex-shrink: 0;
+}
+.p-btn-dark:hover { opacity: .8; }
+
+/* ─── ADDONS ─── */
+.addons-section { background: var(--off); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.addons-inner { max-width: 1200px; margin: 0 auto; padding: 64px 48px; }
+.addons-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px;
+}
+.addon-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+  padding: 24px; transition: box-shadow .2s;
+}
+.addon-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+.addon-icon { font-size: 22px; margin-bottom: 12px; }
+.addon-h { font-size: 15px; font-weight: 700; margin-bottom: 6px; letter-spacing: -.01em; }
+.addon-p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ─── RESPONSIVE (nuovi elementi) ─── */
+@media (max-width: 900px) {
+  .problems-inner { padding: 60px 24px; }
+  .problems-grid { grid-template-columns: 1fr; }
+  .cta-strip { padding: 48px 24px; }
+  .trust-row { gap: 16px; }
+  .p-enterprise { flex-direction: column; align-items: flex-start; }
+  .addons-inner { padding: 48px 24px; }
+  .addons-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes up { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+.hero-text > * { animation: up .5s ease both; }
+.hero-text > *:nth-child(2) { animation-delay: .08s; }
+.hero-text > *:nth-child(3) { animation-delay: .16s; }
+.hero-text > *:nth-child(4) { animation-delay: .24s; }
+.hero-text > *:nth-child(5) { animation-delay: .32s; }
+.hero-visual { animation: up .6s .2s ease both; }
+
+/* ── Plan Finder ── */
+.plan-finder {
+  background: var(--off-white);
+  border: 1px solid #e0d9d0;
+  border-radius: 16px;
+  padding: 32px 36px;
+  margin-bottom: 40px;
+}
+.plan-finder-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+.plan-finder-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.plan-question { margin-bottom: 22px; }
+.plan-q-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.plan-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.plan-opt input { display: none; }
+.plan-opt span {
+  display: inline-block;
+  padding: 7px 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 100px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all .18s;
+  color: #444;
+  background: #fff;
+  user-select: none;
+  white-space: nowrap;
+}
+.plan-opt span:hover { border-color: var(--black); color: var(--black); }
+.plan-opt input:checked + span { background: var(--black); color: #fff; border-color: var(--black); }
+.plan-result {
+  margin-top: 24px;
+  padding: 14px 20px;
+  background: var(--black);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+.plan-result span { font-weight: 400; opacity: .75; margin-left: 6px; }
+.plan-result-why {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 400;
+  opacity: .85;
+  line-height: 1.6;
+}
+.plan-result-why li { margin-left: 16px; list-style: disc; }
+.plan-progress {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  font-weight: 500;
+}
+.plan-q-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.p-list li:has(✦) { color: var(--black); font-weight: 500; }
+.p-card.pf-recommended:not(.featured) {
+  border-color: var(--black) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,.1) !important;
+}
+.p-card.featured.pf-recommended {
+  box-shadow: 0 12px 40px rgba(0,0,0,.25) !important;
+}
+@media (max-width: 600px) {
+  .plan-finder { padding: 24px 20px; }
+  .plan-opt span { font-size: 12px; padding: 6px 13px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="logo-operius.svg" alt="Operius">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#funzionalita">Funzionalità</a></li>
+    <li><a href="#settori">Settori</a></li>
+    <li><a href="#prezzi">Prezzi</a></li>
+    <li><a href="#trial" class="nav-cta">Prova gratis</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-text">
+      <span class="hero-eyebrow">Gestionale per squadre in campo</span>
+      <h1>La tua squadra.<br><span>Sempre coordinata.</span></h1>
+      <p class="hero-sub">I tuoi operai vedono interventi, timbrano e lavorano in campo dal loro telefono. Tu pianifichi, coordini e controlli tutto dal PC o dal tablet. Zero hardware aggiuntivo.</p>
+      <div class="hero-btns">
+        <a href="#trial" class="btn-dark">Prova gratis 30 giorni →</a>
+        <a href="#funzionalita" class="btn-ghost">Scopri come funziona</a>
+      </div>
+      <p class="hero-proof">Nessuna carta di credito &nbsp;·&nbsp; Nessun hardware &nbsp;·&nbsp; <strong>Pronto in pochi giorni</strong></p>
+    </div>
+    <div class="hero-visual">
+      <div class="dash">
+        <div class="dash-bar">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <div class="dash-url">app.operius.it/dashboard</div>
+        </div>
+        <div class="dash-body">
+          <div class="dash-kpis">
+            <div class="kpi blue">
+              <div class="kpi-label">In sede ora</div>
+              <div class="kpi-val">7</div>
+              <div class="kpi-sub">di 9 dipendenti</div>
+            </div>
+            <div class="kpi orange">
+              <div class="kpi-label">Interventi</div>
+              <div class="kpi-val">4</div>
+              <div class="kpi-sub">in corso oggi</div>
+            </div>
+            <div class="kpi purple">
+              <div class="kpi-label">Ore totali</div>
+              <div class="kpi-val">38h</div>
+              <div class="kpi-sub">questo mese</div>
+            </div>
+          </div>
+          <div class="dash-table">
+            <div class="dt-head"><span>Dipendente</span><span>Ore</span><span>Stato</span></div>
+            <div class="dt-row">
+              <div class="dt-name-wrap">
+                <div class="avatar" style="background:var(--c-idro)">MR</div>
+                <div><div class="dt-name">Mario Rossi</div><div class="dt-role">Idraulico · Squadra A</div></div>
+              </div>
+              <div class="dt-time">6h 42m</div>
+              <span class="pill pill-green">In sede</span>
+            </div>
+            <div class="dt-row">
+              <div class="dt-name-wrap">
+                <div class="avatar" style="background:var(--c-elett)">LB</div>
+                <div><div class="dt-name">Luca Bianchi</div><div class="dt-role">Elettricista · Squadra B</div></div>
+              </div>
+              <div class="dt-time">5h 18m</div>
+              <span class="pill pill-yellow">Cantiere</span>
+            </div>
+            <div class="dt-row">
+              <div class="dt-name-wrap">
+                <div class="avatar" style="background:var(--c-gym)">SF</div>
+                <div><div class="dt-name">Sara Ferrari</div><div class="dt-role">Amministrazione</div></div>
+              </div>
+              <div class="dt-time">4h 05m</div>
+              <span class="pill pill-gray">Pausa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PROBLEMS → SOLUTIONS -->
+<section class="problems-section">
+  <div class="problems-inner">
+    <div class="problems-header">
+      <div class="eyebrow" style="text-align:center">Quante ore perdi ogni mese a inseguire cartellini?</div>
+      <h2 class="section-h" style="text-align:center">Gestire una squadra non dovrebbe<br>essere così complicato.</h2>
+    </div>
+    <div class="problems-grid">
+      <div class="prob-col bad">
+        <div class="prob-col-label">✗ &nbsp;Come fai adesso</div>
+        <ul class="prob-list">
+          <li><span class="prob-icon">💬</span> Turni e presenze gestiti su WhatsApp, carta o email</li>
+          <li><span class="prob-icon">📂</span> File Excel diversi per ore, turni, interventi e commesse</li>
+          <li><span class="prob-icon">💸</span> Gestionali da 200–500€/mese progettati per grandi aziende, non per te</li>
+          <li><span class="prob-icon">❓</span> Non sai chi è in cantiere in questo momento</li>
+          <li><span class="prob-icon">⏳</span> Ore perse ogni mese a raccogliere cartellini per il commercialista</li>
+          <li><span class="prob-icon">📞</span> Interventi assegnati per telefono o messaggio vocale</li>
+        </ul>
+      </div>
+      <div class="prob-col good">
+        <div class="prob-col-label">✓ &nbsp;Con Operius</div>
+        <ul class="prob-list">
+          <li><span class="prob-icon">📱</span> Tutto in un'unica app, gestita da smartphone, tablet o PC</li>
+          <li><span class="prob-icon">🗂️</span> Un solo strumento per presenze, turni e ordini di lavoro</li>
+          <li><span class="prob-icon">💶</span> Da 19€/mese, pensato apposta per piccole imprese</li>
+          <li><span class="prob-icon">📍</span> Dashboard in tempo reale, aggiornata al minuto</li>
+          <li><span class="prob-icon">📊</span> Export Excel automatico ogni mese, pronto per il commercialista</li>
+          <li><span class="prob-icon">📋</span> Ordini di lavoro inviati direttamente allo smartphone dell'operaio</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="wrap">
+  <section class="section" id="funzionalita">
+    <div class="eyebrow">Funzionalità</div>
+    <h2 class="section-h">Solo ciò che ti serve davvero.<br>Niente di superfluo.</h2>
+    <p class="section-p">Ogni funzione risolve un problema reale, sviluppata lavorando ogni giorno con piccole imprese.</p>
+
+    <div class="features-grid">
+      <div class="feat">
+        <div class="feat-icon" style="background:#e8f0ff">📍</div>
+        <div class="feat-h">Timbratrice geolocalizzata</div>
+        <p class="feat-p">L'operaio timbra dal telefono. Le coordinate GPS vengono registrate lato server. Nessuna frode possibile, nessun badge da acquistare. Funziona su più sedi contemporaneamente.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon" style="background:#fff3e0">🗓️</div>
+        <div class="feat-h">Turni e squadre</div>
+        <p class="feat-p">Pianifica chi lavora quando, organizza le squadre per tipo di intervento. Ogni dipendente vede il proprio turno direttamente dal telefono o dal tablet.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon" style="background:#f3e8ff">📋</div>
+        <div class="feat-h">Ordini di lavoro mobili</div>
+        <p class="feat-p">Crea un intervento dal PC e assegnalo a una squadra. Indirizzo cliente, tipo di lavoro e note arrivano in tempo reale sul telefono dell'operaio. Apre e chiude geolocalizzato.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon" style="background:#e8f8f0">📊</div>
+        <div class="feat-h">Cartellino mensile</div>
+        <p class="feat-p">Export Excel pronto per il commercialista ogni mese. Ore totali, pause e straordinari calcolati automaticamente secondo le tue regole. Il commercialista ti ringrazierà.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon" style="background:#fff0f0">💸</div>
+        <div class="feat-h">Note spese</div>
+        <p class="feat-p">L'operaio registra le spese direttamente dall'app durante il turno. Foto della ricevuta, categoria e importo. Tu approvi, esporti e hai tutto sotto controllo.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon" style="background:#f0fff4">🌴</div>
+        <div class="feat-h">Ferie e permessi self-service</div>
+        <p class="feat-p">Il dipendente richiede ferie o permessi dall'app. Tu approvi o rifiuti con un click. I turni si aggiornano automaticamente, senza messaggi su WhatsApp.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon" style="background:#f5f0ff">👥</div>
+        <div class="feat-h">Anagrafiche complete</div>
+        <p class="feat-p">Dipendenti, clienti e fornitori in un unico posto. Storico interventi per cliente, documenti, contatti. La base su cui gira tutto il resto.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon" style="background:#fff8e0">📄</div>
+        <div class="feat-h">Preventivi e fatturazione</div>
+        <p class="feat-p">Crea preventivi dal PC, inviali al cliente, convertili in ordine di lavoro. Tieni traccia di cosa è stato fatturato e cosa è ancora aperto.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon" style="background:#f0f0f0">🔒</div>
+        <div class="feat-h">Dati tuoi, sul tuo server</div>
+        <p class="feat-p">Ogni azienda ha la sua istanza dedicata. I tuoi dati non sono mai condivisi. Infrastruttura certificata Aruba, datacenter in Italia.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <h2 class="cta-strip-h">Basta messaggi su WhatsApp.<br>Basta file Excel ovunque.</h2>
+  <p class="cta-strip-sub">Operius sostituisce tutto. Da 19€/mese, pronto in pochi giorni.</p>
+  <a href="#trial" class="btn-white">Prova gratis 30 giorni →</a>
+  <p class="cta-strip-note">Nessuna carta di credito · Nessun hardware · Nessun contratto</p>
+</section>
+
+<!-- VERTICALS -->
+<section class="verticals-section" id="settori">
+  <div class="wrap">
+    <div class="section" style="padding-bottom:80px">
+      <div class="eyebrow">Settori</div>
+      <h2 class="section-h">Pensato da chi il campo<br>lo vive ogni giorno.</h2>
+      <p class="section-p">Costruito attorno a chi lavora sul campo ogni giorno. Ogni funzione nasce da un problema reale.</p>
+      <div class="vert-grid">
+        <div class="vert-card idro">
+          <span class="vert-emoji">🔧</span>
+          <div class="vert-name">Idraulici</div>
+          <div class="vert-desc">Squadre su cantieri diversi, interventi su appuntamento, ore per commessa.</div>
+        </div>
+        <div class="vert-card elett">
+          <span class="vert-emoji">⚡</span>
+          <div class="vert-name">Elettricisti</div>
+          <div class="vert-desc">OdL per impianti, squadre certificate, documentazione cantiere digitale.</div>
+        </div>
+        <div class="vert-card off">
+          <span class="vert-emoji">🔩</span>
+          <div class="vert-name">Officine</div>
+          <div class="vert-desc">OdL veicoli, preventivi, calendario meccanici, storico interventi.</div>
+        </div>
+        <div class="vert-card giar">
+          <span class="vert-emoji">🌿</span>
+          <div class="vert-name">Giardinieri</div>
+          <div class="vert-desc">Tracciamento ore per cliente, pianificazione stagionale, squadre esterne.</div>
+        </div>
+        <div class="vert-card edil">
+          <span class="vert-emoji">🏗️</span>
+          <div class="vert-name">Edilizia</div>
+          <div class="vert-desc">Presenze per cantiere, gestione subappaltatori, ore per commessa.</div>
+        </div>
+        <div class="vert-card" style="border-top-color:#2a2a2a; display:flex; flex-direction:column; justify-content:center;">
+          <span class="vert-emoji" style="opacity:.4">＋</span>
+          <div class="vert-name" style="color:#444">Altro settore?</div>
+          <div class="vert-desc" style="color:#333">Operius si adatta a qualsiasi team in campo. <a href="#trial" style="color:#555; text-decoration:underline;">Parliamone →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<div class="wrap">
+  <section class="section" id="prezzi">
+    <div class="eyebrow">Prezzi</div>
+    <h2 class="section-h">Semplice e trasparente.</h2>
+    <p class="section-p">Nessun costo nascosto. Cambia piano quando vuoi. Disdici in qualsiasi momento.</p>
+
+    <div class="pricing-compare">
+      I gestionali tradizionali costano <strong>200–500€/mese</strong> e richiedono settimane di formazione.<br>
+      Operius funziona in pochi giorni, <strong>da 24€/mese</strong>.
+    </div>
+
+    <div class="pricing-grid">
+      <div class="p-card">
+        <div class="p-plan">Presenze</div>
+        <div class="p-price">€24</div>
+        <div class="p-period">/mese &nbsp;·&nbsp; fino a 10 dipendenti</div>
+        <div class="p-line"></div>
+        <ul class="p-list">
+          <li>Timbratura geolocalizzata nella sede di lavoro</li>
+          <li>Cartellino mensile pronto per il commercialista</li>
+          <li>Export Excel automatico ogni mese</li>
+          <li>Turni e squadre</li>
+          <li>Note spese dipendenti</li>
+          <li>Richiesta ferie e permessi self-service</li>
+          <li>Anagrafiche dipendenti e clienti</li>
+          <li>App installabile (PWA)</li>
+        </ul>
+        <a href="#trial" class="p-btn p-btn-outline">Inizia la prova gratuita</a>
+      </div>
+
+      <div class="p-card featured">
+        <div class="p-badge">Più scelto</div>
+        <div class="p-plan">Gestionale</div>
+        <div class="p-price">€54</div>
+        <div class="p-period">/mese &nbsp;·&nbsp; fino a 25 dipendenti</div>
+        <div class="p-line"></div>
+        <ul class="p-list">
+          <li>Tutto di Presenze</li>
+          <li>Anagrafiche fornitori</li>
+          <li>Ordini di lavoro mobili geolocalizzati</li>
+          <li>Preventivi clienti</li>
+          <li>Dashboard presenze avanzata</li>
+          <li>Gestione commesse</li>
+        </ul>
+        <a href="#trial" class="p-btn p-btn-white">Inizia la prova gratuita</a>
+      </div>
+
+      <div class="p-card">
+        <div class="p-plan">Max</div>
+        <div class="p-price">€89</div>
+        <div class="p-period">/mese &nbsp;·&nbsp; fino a 50 dipendenti</div>
+        <div class="p-line"></div>
+        <ul class="p-list">
+          <li>Tutto di Gestionale</li>
+          <li>Fatturazione</li>
+          <li>Magazzino ricambi</li>
+          <li>Consumi / Telepass / carte carburante</li>
+          <li>Multi-sede e distaccamenti avanzati</li>
+          <li>Supporto dedicato</li>
+          <li>✦ OCR automatico note spese</li>
+          <li>✦ Alert anomalie presenze (AI)</li>
+          <li>✦ Preventivi intelligenti (AI)</li>
+          <li>✦ Report mensile AI</li>
+        </ul>
+        <a href="#trial" class="p-btn p-btn-outline">Inizia la prova gratuita</a>
+      </div>
+      <div class="p-card">
+        <div class="p-plan">Enterprise</div>
+        <div class="p-price" style="font-size:32px; letter-spacing:-.02em; padding-top:8px">Su misura</div>
+        <div class="p-period">dipendenti illimitati</div>
+        <div class="p-line"></div>
+        <ul class="p-list">
+          <li>Tutto di Business</li>
+          <li>Moduli personalizzati</li>
+          <li>Integrazioni su misura</li>
+          <li>Branding personalizzato</li>
+          <li>SLA garantito</li>
+          <li>Formazione dedicata</li>
+        </ul>
+        <a href="#trial" class="p-btn p-btn-outline">Parliamone →</a>
+      </div>
+    </div>
+
+    <p class="pricing-note">Setup iniziale con costo variabile in base alla complessità · Tutti i piani includono assistenza all'avvio</p>
+
+    <!-- Plan Finder -->
+    <div class="plan-finder" id="plan-finder">
+      <div class="plan-finder-title">Qual è il piano giusto per te?</div>
+      <div class="plan-finder-sub">Rispondi a 6 domande — ti diciamo quale piano fa per te e perché.</div>
+
+      <div class="plan-question">
+        <div class="plan-q-num">1 / 6</div>
+        <div class="plan-q-text">Quanti dipendenti o collaboratori gestisci?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q1" value="10" onchange="pfUpdate()"><span>Fino a 10</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q1" value="25" onchange="pfUpdate()"><span>Da 11 a 25</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q1" value="50" onchange="pfUpdate()"><span>Da 26 a 50</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q1" value="50plus" onchange="pfUpdate()"><span>Più di 50</span></label>
+        </div>
+      </div>
+
+      <div class="plan-question">
+        <div class="plan-q-num">2 / 6</div>
+        <div class="plan-q-text">I tuoi operai ricevono e gestiscono interventi direttamente dal telefono?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q2" value="no" onchange="pfUpdate()"><span>No, gestisco solo presenze e turni</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q2" value="si" onchange="pfUpdate()"><span>Sì, aprono e chiudono ordini di lavoro in campo</span></label>
+        </div>
+      </div>
+
+      <div class="plan-question">
+        <div class="plan-q-num">3 / 6</div>
+        <div class="plan-q-text">Hai bisogno di fatturare i clienti o gestire un magazzino ricambi?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q3" value="no" onchange="pfUpdate()"><span>No, per ora non mi serve</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q3" value="si" onchange="pfUpdate()"><span>Sì, almeno uno dei due mi serve</span></label>
+        </div>
+      </div>
+
+      <div class="plan-question">
+        <div class="plan-q-num">4 / 6</div>
+        <div class="plan-q-text">I tuoi operai fotografano scontrini e ricevute per le note spese? Vorresti che venissero riconosciuti automaticamente?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q4" value="no" onchange="pfUpdate()"><span>No, inseriamo tutto a mano</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q4" value="si" onchange="pfUpdate()"><span>Sì, vorrei che la foto dello scontrino venisse letta automaticamente e i dati inseriti senza digitare nulla (OCR)</span></label>
+        </div>
+      </div>
+
+      <div class="plan-question">
+        <div class="plan-q-num">5 / 6</div>
+        <div class="plan-q-text">Vorresti ricevere avvisi automatici in caso di anomalie nelle presenze — ritardi, ore extra, assenze non giustificate?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q5" value="no" onchange="pfUpdate()"><span>No, controllo io a fine giornata</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q5" value="si" onchange="pfUpdate()"><span>Sì, voglio essere avvisato in tempo reale</span></label>
+        </div>
+      </div>
+
+      <div class="plan-question">
+        <div class="plan-q-num">6 / 6</div>
+        <div class="plan-q-text">Ti interesserebbe avere report mensili automatici con analisi di produttività, costi e tendenze?</div>
+        <div class="plan-options">
+          <label class="plan-opt"><input type="radio" name="pf-q6" value="no" onchange="pfUpdate()"><span>No, preparo i report da solo</span></label>
+          <label class="plan-opt"><input type="radio" name="pf-q6" value="si" onchange="pfUpdate()"><span>Sì, un'analisi automatica mi aiuterebbe a decidere meglio</span></label>
+        </div>
+      </div>
+
+      <div id="pf-progress" class="plan-progress">Rispondi a tutte le domande per vedere il piano consigliato</div>
+      <div id="pf-result" class="plan-result" style="display:none"></div>
+    </div>
+
+  </section>
+</div>
+
+<!-- ADDONS -->
+<section class="addons-section">
+  <div class="addons-inner">
+    <div class="eyebrow">Servizi aggiuntivi</div>
+    <h2 class="section-h">Ogni azienda è diversa.</h2>
+    <p class="section-p">Oltre ai piani standard, puoi aggiungere moduli e servizi su misura. Paghi solo quello che ti serve davvero.</p>
+    <div class="addons-grid">
+      <div class="addon-card">
+        <div class="addon-icon">🔗</div>
+        <div class="addon-h">Integrazioni su misura</div>
+        <p class="addon-p">Collegamento con gestionali esistenti, software di contabilità, piattaforme di terze parti o API personalizzate.</p>
+      </div>
+      <div class="addon-card">
+        <div class="addon-icon">🎓</div>
+        <div class="addon-h">Formazione dedicata</div>
+        <p class="addon-p">Sessioni di formazione per il tuo team, onboarding guidato e materiali personalizzati per la tua azienda.</p>
+      </div>
+      <div class="addon-card">
+        <div class="addon-icon">📦</div>
+        <div class="addon-h">Migrazione dati</div>
+        <p class="addon-p">Importiamo lo storico da Excel, da altri gestionali o da fogli di carta. Parti da subito senza perdere nulla.</p>
+      </div>
+      <div class="addon-card">
+        <div class="addon-icon">⚡</div>
+        <div class="addon-h">SLA prioritario</div>
+        <p class="addon-p">Tempi di risposta garantiti, canale di supporto dedicato e interventi urgenti con priorità assoluta.</p>
+      </div>
+      <div class="addon-card">
+        <div class="addon-icon">🎨</div>
+        <div class="addon-h">Branding personalizzato</div>
+        <p class="addon-p">L'app con il tuo logo e i tuoi colori. I tuoi dipendenti usano uno strumento che sembra fatto apposta per te.</p>
+      </div>
+      <div class="addon-card">
+        <div class="addon-icon">🧩</div>
+        <div class="addon-h">Moduli aggiuntivi</div>
+        <p class="addon-p">Magazzino ricambi avanzato, gestione DDT, riconciliazione consumi, API targa e molto altro. Su richiesta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="trial">
+  <div class="form-inner">
+    <div class="eyebrow" style="text-align:center">Inizia adesso</div>
+    <h2 class="section-h">30 giorni gratuiti.<br>Nessuna carta richiesta.</h2>
+    <p class="section-p" style="text-align:center">Compila il modulo. Ti ricontatteremo entro 24 ore.</p>
+
+    <form action="https://formsubmit.co/info@operius.it" method="POST" id="trialForm">
+      <div class="f-row">
+        <input type="text" name="nome" class="f-input" placeholder="Nome e cognome" required>
+        <input type="text" name="azienda" class="f-input" placeholder="Nome azienda" required>
+      </div>
+      <input type="email" name="email" id="email" class="f-input" placeholder="Email aziendale" required>
+      <select name="settore" class="f-input" required>
+        <option value="" disabled selected>Settore aziendale</option>
+        <option>Idraulico / Termoidraulico</option>
+        <option>Elettricista / Impiantista</option>
+        <option>Officina meccanica</option>
+        <option>Edilizia / Costruzioni</option>
+        <option>Giardinaggio</option>
+        <option>Altro</option>
+      </select>
+      <div class="f-row">
+        <input type="number" name="dipendenti" class="f-input" placeholder="Numero dipendenti" min="1" required>
+        <input type="tel" name="telefono" id="telefono" class="f-input" placeholder="Telefono / WhatsApp (opzionale)">
+      </div>
+      <input type="hidden" name="_subject" value="Nuova richiesta trial Operius">
+      <input type="text" name="_honey" style="display:none">
+      <button type="submit" class="f-submit">Richiedi la prova gratuita →</button>
+      <p class="f-note" id="formNote">Ti ricontatteremo entro 24 ore · Nessun impegno</p>
+    </form>
+    <div class="trust-row">
+      <span>🔒 Dati protetti</span>
+      <span>🇮🇹 Server in Italia</span>
+      <span>✓ Nessun contratto</span>
+      <span>✓ Nessun impegno</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo-operius.svg" alt="Operius">
+  <div class="foot-links">
+    <a href="#funzionalita">Funzionalità</a>
+    <a href="#settori">Settori</a>
+    <a href="#prezzi">Prezzi</a>
+    <a href="#trial">Contattaci</a>
+    <a href="#">Privacy</a>
+    <a href="#">Cookie</a>
+  </div>
+  <span class="foot-copy">© 2026 Operius · Tutti i diritti riservati</span>
+</footer>
+
+<script>
+// Messaggio di conferma dopo redirect Formspree
+if (new URLSearchParams(location.search).has('grazie')) {
+  const f = document.getElementById('trialForm');
+  if (f) {
+    f.innerHTML = '<div style="text-align:center;padding:32px 0"><p style="font-size:24px;margin-bottom:12px">✓</p><p style="font-size:18px;font-weight:600;margin-bottom:8px">Richiesta ricevuta!</p><p style="font-size:14px;color:#777">Ti contatteremo entro 24 ore.</p></div>';
+  }
+  history.replaceState({}, '', '/');
+}
+
+// Validazione form: email obbligatoria, telefono opzionale ma almeno uno dei due
+document.getElementById('trialForm').addEventListener('submit', function(e) {
+  const email = document.getElementById('email').value.trim();
+  const tel = document.getElementById('telefono').value.trim();
+  const note = document.getElementById('formNote');
+  if (!email && !tel) {
+    e.preventDefault();
+    note.textContent = 'Inserisci almeno un contatto: email o telefono.';
+    note.style.color = '#c0392b';
+    return;
+  }
+  note.textContent = 'Ti ricontatteremo entro 24 ore · Nessun impegno';
+  note.style.color = '';
+});
+
+// Scroll fade-in
+const io = new IntersectionObserver(entries => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.style.animation = 'up .5s ease both';
+      io.unobserve(el.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.feat, .vert-card, .p-card, .prob-col, .stat-item').forEach(el => {
+  el.style.opacity = '0';
+  io.observe(el);
+});
+
+function pfUpdate() {
+  const names = ['pf-q1','pf-q2','pf-q3','pf-q4','pf-q5','pf-q6'];
+  const vals = names.map(n => document.querySelector('input[name="'+n+'"]:checked')?.value);
+  const answered = vals.filter(Boolean).length;
+  const progress = document.getElementById('pf-progress');
+  const result   = document.getElementById('pf-result');
+
+  document.querySelectorAll('.p-card').forEach(c => c.classList.remove('pf-recommended'));
+
+  if (answered < 6) {
+    progress.textContent = answered === 0
+      ? 'Rispondi a tutte le domande per vedere il piano consigliato'
+      : answered + ' di 6 domande completate — continua per scoprire il tuo piano';
+    result.style.display = 'none';
+    return;
+  }
+  progress.textContent = '';
+
+  const [q1, q2, q3, q4, q5, q6] = vals;
+  const reasons = [];
+
+  // Base da numero dipendenti
+  let plan = 'presenze';
+  if      (q1 === '50plus') { plan = 'enterprise'; reasons.push('Hai più di 50 dipendenti → solo Enterprise copre tutti'); }
+  else if (q1 === '50')     { plan = 'max';        reasons.push('Hai fino a 50 dipendenti → coperto dal piano Max'); }
+  else if (q1 === '25')     { plan = 'gestionale'; reasons.push('Hai fino a 25 dipendenti → coperto dal piano Gestionale'); }
+  else                      {                       reasons.push('Fino a 10 dipendenti → il piano Presenze è sufficiente'); }
+
+  // Upgrade per ordini di lavoro
+  if (q2 === 'si') {
+    reasons.push('I tuoi operai gestiscono interventi in campo → ordini di lavoro inclusi dal piano Gestionale');
+    if (plan === 'presenze') plan = 'gestionale';
+  }
+
+  // Upgrade per fatturazione / magazzino
+  if (q3 === 'si') {
+    reasons.push('Hai bisogno di fatturazione o magazzino → disponibili dal piano Max');
+    if (plan === 'presenze' || plan === 'gestionale') plan = 'max';
+  }
+
+  // Funzioni AI
+  const aiWants = [];
+  if (q4 === 'si') aiWants.push('OCR automatico note spese');
+  if (q5 === 'si') aiWants.push('alert anomalie presenze in tempo reale');
+  if (q6 === 'si') aiWants.push('report mensile AI');
+
+  if (aiWants.length > 0) {
+    reasons.push('Vuoi le funzioni AI (' + aiWants.join(', ') + ') → incluse nel piano Max');
+    if (plan === 'presenze' || plan === 'gestionale') plan = 'max';
+  }
+
+  const labels = { presenze:'Presenze', gestionale:'Gestionale', max:'Max', enterprise:'Enterprise' };
+  const prices = { presenze:'€24/mese', gestionale:'€54/mese', max:'€89/mese', enterprise:'su misura' };
+  const idx    = { presenze:0, gestionale:1, max:2, enterprise:3 };
+
+  const cards = document.querySelectorAll('.p-card');
+  cards[idx[plan]]?.classList.add('pf-recommended');
+
+  const why = reasons.map(r => '<li>' + r + '</li>').join('');
+  result.innerHTML =
+    '→ Piano consigliato: <strong>' + labels[plan] + '</strong><span>' + prices[plan] + '</span>' +
+    '<ul class="plan-result-why">' + why + '</ul>';
+  result.style.display = 'block';
+
+  setTimeout(() => cards[idx[plan]]?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 200);
+}
+</script>
+</body>
+</html>
