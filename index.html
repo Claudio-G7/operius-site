@@ -194,8 +194,117 @@ section { padding: 96px 0; }
 .more li { font-size: 15px; color: var(--ink-2); padding: 0 0 10px 22px; position: relative; break-inside: avoid; }
 .more li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; color: var(--ink); }
 
+/* ─── ANIMAZIONI ─── */
+nav { transition: box-shadow .25s; }
+nav.scrolled { box-shadow: 0 6px 24px rgba(0,0,0,.06); }
+.btn { transition: transform .15s, opacity .15s, border-color .15s, box-shadow .15s; }
+.btn:hover { transform: translateY(-1px); }
+.btn-dark:hover { box-shadow: 0 8px 20px rgba(0,0,0,.18); opacity: 1; }
+
+/* hero: fondo a puntini che si muove piano + entrata a cascata */
+.hero { position: relative; overflow: hidden; }
+.hero::before {
+  content: ''; position: absolute; inset: -40px 0 auto 0; height: 760px; z-index: -1;
+  background-image: radial-gradient(#d9d9d9 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+          mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+  animation: drift 40s linear infinite;
+}
+@keyframes drift { to { background-position: 220px 110px; } }
+.hero .eyebrow, .hero h1, .hero-sub, .hero-btns, .hero-note { animation: up .7s cubic-bezier(.2,.7,.2,1) both; }
+.hero h1 { animation-delay: .06s; }
+.hero-sub { animation-delay: .14s; }
+.hero-btns { animation-delay: .22s; }
+.hero-note { animation-delay: .3s; }
+@keyframes up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.hero h1 em { font-style: normal; background: linear-gradient(transparent 62%, #ffe08a 62%); background-size: 0 100%; background-repeat: no-repeat; animation: evid 1s .7s ease forwards; }
+@keyframes evid { to { background-size: 100% 100%; } }
+
+/* vetrina: inclinata all'inizio, si raddrizza scorrendo (JS imposta --t 0..1) */
+.showcase { --t: 0; perspective: 1800px; }
+.browser { transform: rotateX(calc(14deg * (1 - var(--t)))) scale(calc(.94 + .06 * var(--t))); transform-origin: 50% 0; will-change: transform; }
+.phone { animation: galleggia 6s ease-in-out infinite; }
+@keyframes galleggia { 50% { transform: translateY(-10px); } }
+
+/* comparsa allo scorrimento */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.2,.7,.2,1) var(--d, 0s), transform .7s cubic-bezier(.2,.7,.2,1) var(--d, 0s); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* "prima": la riga di cancellatura si disegna */
+.swap s {
+  display: inline; text-decoration: none;
+  background: linear-gradient(#c0392b, #c0392b) no-repeat 0 58% / 0 1.5px;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  transition: background-size .7s .35s ease;
+}
+.swap .in s { background-size: 100% 1.5px; }
+.swap strong { display: block; margin-top: 8px; }
+.swap div, .card, .price { transition: opacity .7s cubic-bezier(.2,.7,.2,1) var(--d, 0s), transform .7s cubic-bezier(.2,.7,.2,1) var(--d, 0s), border-color .2s, box-shadow .2s; }
+.swap div:hover, .card:hover, .price:hover { border-color: #cfcfcf; box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+.shot { transition: opacity .7s cubic-bezier(.2,.7,.2,1) var(--d, 0s), transform .7s cubic-bezier(.2,.7,.2,1) var(--d, 0s), box-shadow .3s; }
+.shot:hover { box-shadow: 0 26px 70px rgba(0,0,0,.13); }
+
+/* mock dell'app nella sezione AI */
+.mock { background: var(--white); color: var(--ink); border-radius: var(--radius); overflow: hidden; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+.mock figcaption { font-size: 12px; color: #8a8a8a; padding: 9px 14px; border-top: 1px solid var(--line); background: #fafafa; }
+.mock-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: #f7f7f7; font-size: 14px; font-weight: 600; }
+.mock-stato { font-size: 12px; font-weight: 600; color: #c0392b; opacity: 0; transition: opacity .3s; }
+.mock-btn { font-size: 12px; font-weight: 500; border: 1px solid var(--line); border-radius: 6px; padding: 4px 9px; background: var(--white); }
+.mock-body { padding: 16px; }
+.mock-label { font-size: 13px; font-weight: 600; color: #555; margin-bottom: 8px; }
+.mock-dict { display: flex; gap: 10px; align-items: flex-start; }
+.mock-area { flex: 1; min-height: 92px; border: 1px solid #dcdcdc; border-radius: 8px; padding: 10px 12px; font-size: 14px; line-height: 1.5; }
+.caret { display: none; width: 2px; height: 1.05em; background: var(--ink); vertical-align: -2px; margin-left: 1px; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.mic { flex: none; width: 46px; height: 46px; border-radius: 10px; border: 1px solid #dcdcdc; display: grid; place-items: center; color: #333; transition: background .2s, color .2s, border-color .2s; }
+.wave { display: flex; gap: 4px; align-items: center; height: 28px; margin-top: 12px; opacity: 0; transition: opacity .3s; }
+.wave i { width: 4px; border-radius: 2px; background: #c0392b; height: 20%; }
+.mock.ascolto .mock-stato, .mock.ascolto .wave { opacity: 1; }
+.mock.ascolto .mic { background: #c0392b; border-color: #c0392b; color: #fff; animation: pulsa 1.2s ease-out infinite; }
+.mock.ascolto .wave i { animation: onda .9s ease-in-out infinite; }
+.wave i:nth-child(3n) { animation-delay: -.3s !important; }
+.wave i:nth-child(3n+1) { animation-delay: -.6s !important; }
+.wave i:nth-child(4n) { animation-duration: .7s !important; }
+@keyframes onda { 0%, 100% { height: 18%; } 50% { height: 100%; } }
+@keyframes pulsa { 0% { box-shadow: 0 0 0 0 rgba(192,57,43,.45); } 100% { box-shadow: 0 0 0 14px rgba(192,57,43,0); } }
+.mock.scrive .caret { display: inline-block; }
+
+.libretto { display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: start; }
+.foto-lib { position: relative; border-radius: 8px; overflow: hidden; background: #e9edf3; padding: 10px; aspect-ratio: 3 / 4; }
+.lib-carta { background: #f3f7fc; border: 1px solid #c9d3e0; border-radius: 4px; height: 100%; padding: 8px; display: grid; gap: 7px; align-content: start; }
+.lib-carta b { font-size: 6px; letter-spacing: .05em; color: #4a5a70; }
+.lib-carta i { height: 5px; border-radius: 2px; background: #c3cedc; width: 85%; }
+.lib-carta i.c { width: 55%; background: #9fb0c6; }
+.scan { position: absolute; left: 0; right: 0; top: 0; height: 3px; background: linear-gradient(90deg, transparent, #1a6cf0, transparent); box-shadow: 0 0 14px 3px rgba(26,108,240,.45); opacity: 0; pointer-events: none; }
+.mock.scansione .scan { opacity: 1; animation: scorri 1.4s ease-in-out 2 alternate; }
+@keyframes scorri { from { top: 0; } to { top: calc(100% - 3px); } }
+.campi { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin: 0; }
+.campi .w2 { grid-column: span 2; }
+.campi dt { font-size: 12px; font-weight: 600; color: #555; margin-bottom: 3px; }
+.campi dd { margin: 0; border: 1px solid #dcdcdc; border-radius: 6px; padding: 6px 9px; font-size: 13px; min-height: 31px; transition: background .4s, border-color .4s; }
+.campi dd span { opacity: 0; transition: opacity .3s; }
+.campi dd.letto { background: #eef5ff; border-color: #9cc0f5; }
+.campi dd.letto span { opacity: 1; }
+
+.bolla .scan { z-index: 2; }
+.bolla tbody tr { transition: opacity .4s, transform .4s; }
+.bolla.attesa tbody tr { opacity: 0; transform: translateX(-10px); }
+.bolla tbody tr.vista { opacity: 1; transform: none; }
+
+.pill-ai { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .04em; padding: 3px 8px; border-radius: 99px; background: var(--ink); color: var(--white); vertical-align: 3px; margin-left: 4px; }
+.price.ai-plan { background: linear-gradient(180deg, #fbfbfb, #fff); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+  .browser { transform: none; }
+  .swap s { background-size: 100% 1.5px; }
+  .hero h1 em { background-size: 100% 100%; }
+}
+
 /* prezzi */
-.prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+.prices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: stretch; }
 .price { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; background: var(--white); display: flex; flex-direction: column; }
 .price.main { border: 2px solid var(--ink); }
 .price h3 { font-size: 18px; font-weight: 650; }
@@ -247,6 +356,7 @@ footer a:hover { color: var(--ink); }
   .split.rev .shots { order: 2; }
   .sticky { position: static; }
   .grid3, .prices { grid-template-columns: 1fr 1fr; }
+  .libretto { grid-template-columns: 90px 1fr; }
   .ai-row { grid-template-columns: 1fr; gap: 20px; }
   .showcase { padding-right: 90px; }
   .phone { width: 160px; border-width: 6px; border-radius: 26px; }
@@ -259,6 +369,10 @@ footer a:hover { color: var(--ink); }
   section { padding: 64px 0; }
   .swap, .grid3, .prices, .f-row { grid-template-columns: 1fr; }
   .more ul { columns: 1; }
+  .libretto { grid-template-columns: 1fr; }
+  .foto-lib { display: none; }
+  .campi { grid-template-columns: 1fr; }
+  .campi .w2 { grid-column: auto; }
   .bolla td:nth-child(1), .bolla th:nth-child(1) { display: none; }
   .showcase { padding-right: 0; }
   .phone { position: static; width: 200px; margin: -60px 16px 0 auto; }
@@ -295,7 +409,7 @@ footer a:hover { color: var(--ink); }
 <header class="hero">
   <div class="wrap">
     <p class="eyebrow">Gestionale per officine e imprese con personale</p>
-    <h1>L'officina e le presenze, finalmente nello stesso gestionale.</h1>
+    <h1>L'officina e le presenze, finalmente <em>nello stesso gestionale.</em></h1>
     <p class="hero-sub">Ordini di lavoro, preventivi e fattura elettronica per l'officina. Timbrature dal telefono, cartellino, ferie e permessi per il personale. Nato dentro un'azienda vera e usato lì ogni giorno, prima di arrivare a te.</p>
     <div class="hero-btns">
       <a class="btn btn-dark" href="#demo">Richiedi una demo →</a>
@@ -326,7 +440,7 @@ footer a:hover { color: var(--ink); }
     <div class="swap">
       <div><s>Ordini di lavoro su carta o lavagna</s><strong>OdL digitali con lavorazioni, ricambi, foto e note</strong></div>
       <div><s>Preventivi e fatture ricopiati in Word</s><strong>Il preventivo dell'OdL diventa fattura elettronica</strong></div>
-      <div><s>Bolle dei ricambi da ricopiare a mano</s><strong>Bolle importate dal file o dalla foto</strong></div>
+      <div><s>Bolle dei ricambi da ricopiare a mano</s><strong>Bolle importate dal file o lette da una foto</strong></div>
       <div><s>Cartellini di carta o fogli Excel delle ore</s><strong>Timbrature dal telefono e cartellino calcolato</strong></div>
       <div><s>Ferie chieste su WhatsApp</s><strong>Richiesta dall'app, approvazione con un clic</strong></div>
       <div><s>Avvisi al personale senza sapere chi li ha letti</s><strong>Comunicazioni con presa visione registrata</strong></div>
@@ -344,10 +458,10 @@ footer a:hover { color: var(--ink); }
     </div>
     <div class="split">
       <ul class="feats">
-        <li><h3>Ordini di lavoro completi</h3><p>Veicolo, cliente, lavorazioni con ore e ricambi, priorità, foto e allegati. Le note si possono dettare a voce.</p></li>
+        <li><h3>Ordini di lavoro completi</h3><p>Veicolo, cliente, lavorazioni con ore e ricambi, priorità, foto e allegati. Con il piano Max le note si dettano a voce.</p></li>
         <li><h3>Preventivo dentro l'OdL</h3><p>IVA per riga, sconto in percentuale o in euro, acconti. Stampa in PDF con il tuo logo e i tuoi dati.</p></li>
         <li><h3>Calendario dell'officina</h3><p>Trascini gli OdL sugli orari e sugli operatori. La dashboard mostra cosa c'è oggi, cosa è fermo e cosa è da chiudere.</p></li>
-        <li><h3>Ricambi dalle bolle dei fornitori</h3><p>Importi il file della bolla o la fotografi: le righe vengono lette e le attribuisci alla lavorazione giusta, anche tutte insieme.</p></li>
+        <li><h3>Ricambi dalle bolle dei fornitori</h3><p>Le bolle in formato file si importano da sole (oggi Autocar e Iveco Orecchia, altri fornitori su richiesta); con il piano Max anche quelle di carta, da una foto. Ogni riga si attribuisce alla lavorazione giusta, anche tutte insieme.</p></li>
         <li><h3>Fattura elettronica</h3><p>Genera l'XML FatturaPA, validato sullo schema ufficiale e controllato nei totali e nelle aliquote. La fattura non parte finché mancano P.IVA, codice fiscale, indirizzo o pagamento.</p></li>
         <li><h3>Incassi sotto controllo</h3><p>Fatturato, pagato, da incassare e insoluti, mese per mese.</p></li>
         <li><h3>Clienti senza doppioni</h3><p>Prima di creare un cliente il sistema cerca quello esistente e controlla partita IVA e codice fiscale.</p></li>
@@ -386,7 +500,7 @@ footer a:hover { color: var(--ink); }
 <section id="ai" class="dark" aria-labelledby="t-ai">
   <div class="wrap">
     <div class="sec-head">
-      <span class="tag ai">Intelligenza artificiale</span>
+      <span class="tag ai">Intelligenza artificiale · piano Max</span>
       <h2 id="t-ai">Meno tastiera, più officina.</h2>
       <p>Le parti più noiose le fa l'intelligenza artificiale: scrivere quello che hai fatto, ricopiare il libretto, ribattere le bolle dei ricambi. Tu controlli e confermi.</p>
     </div>
@@ -398,8 +512,16 @@ footer a:hover { color: var(--ink); }
         <p>Funziona quando si apre l'OdL (le lavorazioni richieste dal cliente), durante il lavoro (le note) e alla chiusura (i lavori eseguiti). Anche dal tablet.</p>
         <div class="ai-steps"><span>🎙 Parli</span><span>✍️ Diventa testo</span><span>✓ Controlli e salvi</span></div>
       </div>
-      <figure class="shot">
-        <img src="/img/ai-dettatura.webp" width="1400" height="290" loading="lazy" alt="Campo Note lavori effettuati con il testo dettato a voce e il pulsante del microfono">
+      <figure class="mock" data-demo="dettatura" aria-label="Esempio: nota di chiusura dettata a voce">
+        <div class="mock-head"><span>Dati chiusura</span><span class="mock-stato" aria-hidden="true">In ascolto…</span></div>
+        <div class="mock-body">
+          <div class="mock-label">Note lavori effettuati</div>
+          <div class="mock-dict">
+            <div class="mock-area"><span class="typed" data-text="Sostituiti dischi e pastiglie anteriori, spurgato e rabboccato il liquido freni. Prova su strada ok. Consigliata sostituzione spazzole tergicristallo al prossimo tagliando.">Sostituiti dischi e pastiglie anteriori, spurgato e rabboccato il liquido freni. Prova su strada ok. Consigliata sostituzione spazzole tergicristallo al prossimo tagliando.</span><i class="caret"></i></div>
+            <span class="mic" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 15a4 4 0 0 0 4-4V5a4 4 0 0 0-8 0v6a4 4 0 0 0 4 4Zm7-4a1 1 0 1 0-2 0 5 5 0 0 1-10 0 1 1 0 1 0-2 0 7 7 0 0 0 6 6.93V20H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-2.07A7 7 0 0 0 19 11Z"/></svg></span>
+          </div>
+          <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
         <figcaption>Esempio: nota di chiusura dettata a voce</figcaption>
       </figure>
     </div>
@@ -410,8 +532,20 @@ footer a:hover { color: var(--ink); }
         <p>All'accettazione fotografi il libretto di circolazione: targa, marca, modello, telaio, anno, cilindrata e alimentazione si compilano da soli, e per un cliente nuovo anche nome e codice fiscale dell'intestatario.</p>
         <div class="ai-steps"><span>📷 Fotografi</span><span>🔎 Legge i campi</span><span>✓ Controlli e salvi</span></div>
       </div>
-      <figure class="shot">
-        <img src="/img/ai-libretto.webp" width="1400" height="248" loading="lazy" alt="Dati del veicolo compilati: targa, marca, modello, anno, telaio, cilindrata e alimentazione, con il pulsante Scansione libretto">
+      <figure class="mock" data-demo="libretto" aria-label="Esempio: dati del veicolo letti dalla foto del libretto">
+        <div class="mock-head"><span>Dati veicolo cliente</span><span class="mock-btn" aria-hidden="true">📷 Scansione libretto</span></div>
+        <div class="mock-body libretto">
+          <div class="foto-lib" aria-hidden="true"><div class="lib-carta"><b>CARTA DI CIRCOLAZIONE</b><i></i><i></i><i class="c"></i><i></i><i class="c"></i><i></i><i></i></div><span class="scan"></span></div>
+          <dl class="campi">
+            <div><dt>Targa</dt><dd>GH412KT</dd></div>
+            <div><dt>Marca</dt><dd>FORD</dd></div>
+            <div><dt>Modello</dt><dd>Focus SW 1.5 EcoBlue</dd></div>
+            <div><dt>Anno</dt><dd>2021</dd></div>
+            <div class="w2"><dt>Telaio (VIN)</dt><dd>WF0NXXGCHNMR12345</dd></div>
+            <div><dt>Cilindrata</dt><dd>1499</dd></div>
+            <div><dt>Alimentazione</dt><dd>Diesel</dd></div>
+          </dl>
+        </div>
         <figcaption>Esempio: dati letti dal libretto</figcaption>
       </figure>
     </div>
@@ -423,7 +557,8 @@ footer a:hover { color: var(--ink); }
         <p>Si può fare anche prima che il preventivo esista.</p>
         <div class="ai-steps"><span>📷 Fotografi</span><span>📋 Righe lette</span><span>🔧 Attribuisci all'OdL</span></div>
       </div>
-      <div class="bolla" role="img" aria-label="Esempio di righe ricambi lette da una bolla fotografata">
+      <div class="bolla mock" data-demo="bolla" role="img" aria-label="Esempio di righe ricambi lette da una bolla fotografata">
+        <span class="scan" aria-hidden="true"></span>
         <table>
           <thead><tr><th>Codice</th><th>Descrizione</th><th style="text-align:right">Q.tà</th><th style="text-align:right">€/pz</th><th>Stato</th></tr></thead>
           <tbody>
@@ -435,7 +570,7 @@ footer a:hover { color: var(--ink); }
       </div>
     </div>
 
-    <p class="ai-note">Audio e foto vengono inviati al servizio di intelligenza artificiale (OpenAI) solo quando premi il pulsante, e servono solo a restituire il testo. Se preferisci, le funzioni AI si possono non attivare: tutto il resto funziona lo stesso.</p>
+    <p class="ai-note">Le funzioni AI sono incluse nel piano Max. Audio e foto vengono inviati al servizio di intelligenza artificiale (OpenAI) solo quando premi il pulsante, e servono solo a restituire il testo. Se preferisci, le funzioni AI si possono non attivare: tutto il resto funziona lo stesso.</p>
   </div>
 </section>
 
@@ -560,20 +695,32 @@ footer a:hover { color: var(--ink); }
           <li>Tutto di Presenze</li>
           <li>Ordini di lavoro e calendario</li>
           <li>Preventivi in PDF</li>
-          <li>Ricambi dalle bolle dei fornitori</li>
+          <li>Ricambi da bolle in formato file</li>
           <li>Fattura elettronica XML</li>
           <li>Dashboard incassi e insoluti</li>
           <li>Anagrafica clienti e veicoli</li>
         </ul>
         <a class="btn btn-dark" href="#demo" data-piano="Officina">Richiedi una demo</a>
       </div>
+      <div class="price ai-plan">
+        <h3>Max <span class="pill-ai">AI</span></h3>
+        <p class="who">fino a 50 dipendenti</p>
+        <p class="amt">€89 <small>/mese + IVA</small></p>
+        <ul>
+          <li>Tutto di Officina</li>
+          <li>Dettatura vocale di lavorazioni e note</li>
+          <li>Foto del libretto: scheda veicolo compilata</li>
+          <li>Foto della bolla: righe ricambi lette</li>
+          <li>Assistenza dedicata</li>
+        </ul>
+        <a class="btn btn-line" href="#demo" data-piano="Max">Richiedi una demo</a>
+      </div>
       <div class="price">
         <h3>Su misura</h3>
         <p class="who">più dipendenti o esigenze particolari</p>
-        <p class="amt" style="font-size:34px">Su preventivo</p>
+        <p class="amt" style="font-size:28px">Su preventivo</p>
         <ul>
-          <li>Oltre 25 dipendenti</li>
-          <li>Più sedi e reparti</li>
+          <li>Oltre 50 dipendenti</li>
           <li>Moduli e integrazioni dedicate</li>
           <li>Migrazione dei dati esistenti</li>
           <li>Formazione del personale</li>
@@ -592,6 +739,7 @@ footer a:hover { color: var(--ink); }
     <div class="faq">
       <details><summary>Devo comprare hardware?</summary><p>No. Bastano i PC, i tablet e i telefoni che avete già. Se avete terminali a badge Anviz, le loro timbrature si importano.</p></details>
       <details><summary>La fattura elettronica viene inviata allo SdI?</summary><p>Operius genera il file XML già controllato. L'invio allo SdI avviene oggi tramite il vostro intermediario o il cassetto fiscale. L'esportazione per lo studio del commercialista si concorda in fase di attivazione.</p></details>
+      <details><summary>Le funzioni di intelligenza artificiale sono in tutti i piani?</summary><p>No, sono nel piano Max: dettatura vocale, lettura del libretto e lettura delle bolle da foto. Negli altri piani gli stessi campi si compilano a mano e le bolle in formato file si importano comunque.</p></details>
       <details><summary>Dove stanno i miei dati?</summary><p>Ogni azienda ha la propria installazione con il proprio database, separato dagli altri clienti. Dove ospitarla si decide insieme all'attivazione.</p></details>
       <details><summary>Posso portare i dati che ho già?</summary><p>Sì. Dipendenti, clienti e veicoli si importano da Excel. Lo storico da altri gestionali si valuta caso per caso.</p></details>
       <details><summary>Come funziona la demo?</summary><p>Ti mostriamo Operius configurato per la tua attività, con il tuo logo e dati di esempio, e rispondiamo alle domande sul tuo modo di lavorare.</p></details>
@@ -666,6 +814,130 @@ document.querySelectorAll('[data-piano]').forEach(function (a) {
     if (h) h.value = a.dataset.piano;
   });
 });
+// ── Animazioni ─────────────────────────────────────────────────────────
+(function () {
+  var ridotto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav = document.querySelector('nav');
+  var vetrina = document.querySelector('.showcase');
+
+  function alloScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+    if (vetrina && !ridotto) {
+      var r = vetrina.getBoundingClientRect();
+      var t = Math.min(1, Math.max(0, 1 - (r.top - 80) / (window.innerHeight * 0.6)));
+      vetrina.style.setProperty('--t', t.toFixed(3));
+    }
+  }
+  var inCoda = false;
+  window.addEventListener('scroll', function () {
+    if (!inCoda) { inCoda = true; requestAnimationFrame(function () { inCoda = false; alloScroll(); }); }
+  }, { passive: true });
+  alloScroll();
+
+  // comparsa a cascata degli elementi delle sezioni
+  var gruppi = ['.swap > div', '.feats > li', '.grid3 > .card', '.prices > .price', '.shot', '.more li', '.ai-row', '.faq details', '.sec-head'];
+  var elementi = [];
+  gruppi.forEach(function (sel) {
+    document.querySelectorAll(sel).forEach(function (el) {
+      if (el.closest('.hero')) return;
+      var fratelli = Array.prototype.indexOf.call(el.parentNode.children, el);
+      el.classList.add('reveal');
+      el.style.setProperty('--d', Math.min(fratelli, 8) * 0.06 + 's');
+      elementi.push(el);
+    });
+  });
+  if (ridotto || !('IntersectionObserver' in window)) {
+    elementi.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (voci) {
+      voci.forEach(function (v) {
+        if (v.isIntersecting) { v.target.classList.add('in'); io.unobserve(v.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    elementi.forEach(function (el) { io.observe(el); });
+  }
+
+  // ── esempi animati della sezione AI (partono quando entrano a schermo)
+  function aspetta(ms) { return new Promise(function (ok) { setTimeout(ok, ms); }); }
+
+  function dettatura(m) {
+    var t = m.querySelector('.typed'), testo = t.dataset.text;
+    t.textContent = '';
+    m.classList.add('ascolto');
+    return aspetta(2200).then(function () {
+      m.classList.remove('ascolto'); m.classList.add('scrive');
+      var parole = testo.split(' '), i = 0;
+      return new Promise(function (ok) {
+        (function una() {
+          if (i >= parole.length) { m.classList.remove('scrive'); return ok(); }
+          t.textContent += (i ? ' ' : '') + parole[i++];
+          setTimeout(una, 55 + Math.random() * 60);
+        })();
+      });
+    });
+  }
+
+  function libretto(m) {
+    var dd = m.querySelectorAll('.campi dd');
+    m.classList.add('scansione');
+    return aspetta(1500).then(function () {
+      var i = 0;
+      return new Promise(function (ok) {
+        (function uno() {
+          if (i >= dd.length) { m.classList.remove('scansione'); return ok(); }
+          dd[i++].classList.add('letto');
+          setTimeout(uno, 230);
+        })();
+      });
+    });
+  }
+
+  function bolla(m) {
+    var righe = m.querySelectorAll('tbody tr');
+    var stati = m.querySelectorAll('.st');
+    stati.forEach(function (s) { s.dataset.fine = s.textContent; s.dataset.ok = s.classList.contains('ok') ? '1' : ''; s.textContent = 'Letta'; s.classList.remove('ok'); });
+    m.classList.add('attesa', 'scansione');
+    return aspetta(1200).then(function () {
+      var i = 0;
+      return new Promise(function (ok) {
+        (function una() {
+          if (i >= righe.length) {
+            m.classList.remove('scansione');
+            return aspetta(700).then(function () {
+              stati.forEach(function (s, k) {
+                setTimeout(function () { s.textContent = s.dataset.fine; if (s.dataset.ok) s.classList.add('ok'); }, k * 250);
+              });
+              ok();
+            });
+          }
+          righe[i++].classList.add('vista');
+          setTimeout(una, 380);
+        })();
+      });
+    });
+  }
+
+  var demo = { dettatura: dettatura, libretto: libretto, bolla: bolla };
+  var mocks = document.querySelectorAll('[data-demo]');
+  if (!ridotto && 'IntersectionObserver' in window) {
+    var io2 = new IntersectionObserver(function (voci) {
+      voci.forEach(function (v) {
+        if (!v.isIntersecting) return;
+        io2.unobserve(v.target);
+        demo[v.target.dataset.demo](v.target);
+      });
+    }, { threshold: 0.5 });
+    mocks.forEach(function (m) {
+      // si parte vuoti, cosi' non si vede il risultato sparire e ricomparire
+      if (m.dataset.demo === 'bolla') m.classList.add('attesa');
+      if (m.dataset.demo === 'dettatura') m.querySelector('.typed').textContent = '';
+      if (m.dataset.demo === 'libretto') m.querySelectorAll('.campi dd').forEach(function (d) {
+        d.innerHTML = '<span>' + d.textContent + '</span>';
+      });
+      io2.observe(m);
+    });
+  }
+})();
 </script>
 </body>
 </html>
